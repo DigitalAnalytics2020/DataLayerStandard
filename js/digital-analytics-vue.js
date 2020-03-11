@@ -18,15 +18,32 @@ var digital_analytics = new Vue({
     this.pages.push(pageAttribute);
     this.setCurrentCategoryPage(-1, -1);
     $.getJSON('json/digital_analytics.json').then((data) => {this.digital_analytics_2020 = data});
+    window.CWC_MLCA.site();
   },
   methods: {
     setCurrentCategoryPage: function (categoryIndex, pageIndex) {
+      var daPageName = "digital-analytics:standard2020:";
+      var daPageTitle = "Digital Analytics Standard 2020";
+      var daPageCategory = "";
+      var daPageLanguage = "EN";
       this.current_category_index = categoryIndex;
       this.current_page = null;
-      if (categoryIndex >= 0) {
+      if (categoryIndex < 0) {
+        daPageName += "home";
+        daPageTitle += " : Home Page";
+        daPageCategory = "Home";
+      } else {
+        daPageName += (categoryIndex == 0 ? "system-object" : (categoryIndex == 1 ? "data-layer" : "html5-attribute"));
+        daPageTitle += " : " + this.page_categories[categoryIndex];
+        daPageCategory = this.page_categories[categoryIndex];
         if (pageIndex < 0) this.current_page = "View detail of " + this.page_categories[categoryIndex];
-        else this.current_page = this.pages[categoryIndex][pageIndex];
+        else {
+          this.current_page = this.pages[categoryIndex][pageIndex];
+          daPageName += ":" + this.current_page.toLowerCase();
+          daPageTitle += " - " + this.current_page;
+        }
       }
+      window.CWC_MLCA.page(daPageName, daPageTitle, daPageCategory, daPageLanguage);
     },
     showMenuBar: function (showFlag) {
       if (showFlag) {
