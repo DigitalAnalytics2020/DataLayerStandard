@@ -1,61 +1,37 @@
 // digital-analytics-vue.js
-var digital_analytics_vue = new Vue({
-  el: '#digital-analytics-vue',
+var digital_analytics = new Vue({
+  el: '#digital_analytics',
   data: {
-    blogs: [],
-    year_loaded: {},
-    view_blog: null,
-    reading_blogs: [
-      '2020-01-01',
-      '2020-01-10'
-    ]
+    pages: [],
+    show_menu_bar: true,
+    current_category_index: -1,
+    current_page: null
   },
-  mounted: function(){
-    var year;
-    for (year = 2020; year > 2012; year--) this.year_loaded[year.toString()] = false;
-    this.loadJsonFiles(2020);
-    year = 2019;
-    if (window.location.search.substring(1, 9) < "2020" && window.location.search.substring(1, 9) > "2013") year = Number(window.location.search.substring(1, 5));
-    this.loadJsonFiles(year);
+  mounted: function() {
+    var pageSystem = [ "URL", "Timestamp", "Other" ];
+    var pageDataLayer = [ "Root", "Site", "Page", "Products", "Forms", "Events", "Transaction", "Components", "Users", "Customers" ];
+    var pageAttribute = [ "Redirect", "Exit", "Download", "Click", "Content" ];
+    this.pages.push(pageSystem);
+    this.pages.push(pageDataLayer);
+    this.pages.push(pageAttribute);
+    this.setCurrentCategoryPage(-1, -1);
   },
   methods: {
-    loadJsonFiles: function (year) {
-      if (!this.year_loaded[year.toString()]) {
-        $.getJSON('https://jw.wj9.ca/json/' + year.toString() + '.json', function(data) {
-          data.forEach( function(blog) {    
-            jw.blogs.push(blog);
-            if (window.location.search.substring(1, 9) == blog.publishedAt.split('-').join('')) jw.view_blog = blog;
-          });
-        });
-        this.year_loaded[year.toString()] = true;
+    setCurrentCategoryPage: function (categoryIndex, pageIndex) {
+      this.current_category_index = categoryIndex;
+      this.current_page = null;
+      if (categoryIndex >= 0) this.current_page = this.pages[categoryIndex][pageIndex];
+      console.log("wz:setCurrentCategoryPage:" + this.current_category_index + "|" + this.current_page);
+    },
+    showMenuBar: function (showFlag) {
+      if (showFlag) {
+        this.$refs.menuSidebar.style.display = "block";
+        this.$refs.menuOverlay.style.display = "block";
+      } else {
+        this.$refs.menuSidebar.style.display = "none";
+        this.$refs.menuOverlay.style.display = "none";
       }
-    },
-    gotoLoadedYear: function (year) {
-      this.loadJsonFiles(year);      
-      document.location = '#' + year.toString();
-    },
-    classLoadedYear: function (year) {
-      return (this.year_loaded[year.toString()] ? 'w3-white' : 'w3-grey');
-    },
-    blogIndexID: function (index) {
-      if ((index == 0) || (index < this.blogs.length && this.blogs[index].publishedAt.substring(0, 4) != this.blogs[index - 1].publishedAt.substring(0, 4))) return this.blogs[index].publishedAt.substring(0, 4);
-      return '';
-    },
-    blogBody: function (blog) {
-      var blog_body = "";
-      blog.body.forEach( function(line) {
-        blog_body += line.replace("<jw-img", "<img style='width:100%'").replace("data-pi='", "src='https://i.pinimg.com/originals/") + "<br />";
-      });
-      return blog_body;
-    },
-    blogView: function (blog) {
-      this.blogReading(blog);
-      this.view_blog = blog
-      window.gtag('event', 'ReadMore', { event_category: 'Blog', event_label: blog.publishedAt, value: '1'});
-      $('html, body').animate({scrollTop: 700}, 'fast');
-    },
-    blogReading: function (blog) {
-      if (!this.reading_blogs.includes(blog.publishedAt)) this.reading_blogs.push(blog.publishedAt);
+      console.log("wz:showMenuBar:" + showFlag + "|" + this.$refs.menuSidebar);
     },
     scrollPageTop: function () {
       $('html, body').animate({scrollTop: 0}, 'fast');
@@ -65,14 +41,34 @@ var digital_analytics_vue = new Vue({
     }
   },
   computed: {
-    classLocationHostJFan: function () {
+    classCaretDownSO: function () {
       return {
-        'w3-disabled': window.location.host.toLowerCase().endsWith('jfan.ca')
+        'fa-caret-down': this.current_category_index == 0
       }
     },
-    classLocationHostWZhao: function () {
+    classCaretRightSO: function () {
       return {
-        'w3-disabled': window.location.host.toLowerCase().endsWith('wzhao.ca')
+        'fa-caret-right': this.current_category_index != 0
+      }
+    },
+    classCaretDownDL: function () {
+      return {
+        'fa-caret-down': this.current_category_index == 1
+      }
+    },
+    classCaretRightDL: function () {
+      return {
+        'fa-caret-right': this.current_category_index != 1
+      }
+    },
+    classCaretDownHA: function () {
+      return {
+        'fa-caret-down': this.current_category_index == 2
+      }
+    },
+    classCaretRightHA: function () {
+      return {
+        'fa-caret-right': this.current_category_index != 2
       }
     }
   }
