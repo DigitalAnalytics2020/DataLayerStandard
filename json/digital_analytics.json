@@ -1,0 +1,27 @@
+{
+  "URL": {
+    "name": "URL Object",
+    "description": [
+      "Domain&nbsp;",
+      "&nbsp;window.location.hostname;<br />",
+      "&nbsp;",
+      "Path&nbsp;",
+      "&nbsp;window.location.pathname;<br />",
+      "&nbsp;",
+      "Parameters&nbsp;",
+      "&nbsp;window.location.search;<br />",
+      "&nbsp;",
+      "URL&nbsp;",
+      "&nbsp;window.location.href;<br />",
+      "&nbsp;"
+    ]
+  },
+  "Timestamp": {
+    "name": "Timestamp Object",
+    "description": [
+      "Date()&nbsp;",
+      "&nbsp;// used for app start and complete, need to standardize format<br />",
+      "&nbsp;"
+    ]
+  }
+}
