@@ -2,6 +2,7 @@
 var digital_analytics = new Vue({
   el: '#digital_analytics',
   data: {
+    digital_analytics_2020: {},
     pages: [],
     show_menu_bar: true,
     current_category_index: -1,
@@ -15,6 +16,7 @@ var digital_analytics = new Vue({
     this.pages.push(pageDataLayer);
     this.pages.push(pageAttribute);
     this.setCurrentCategoryPage(-1, -1);
+    $.getJSON('json/digital_analytics.json').then((data) => {this.digital_analytics_2020 = data});
   },
   methods: {
     setCurrentCategoryPage: function (categoryIndex, pageIndex) {
