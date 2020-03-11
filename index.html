@@ -85,7 +85,7 @@ body {font-size:16px;}
     <hr style="width:200px;border:5px solid red" class="w3-round">
   </div>
 
-  <!-- Home -->
+  <!-- Home Page -->
   <div class="w3-container" style="margin-top:20px" v-if="current_category_index<0">
     <h1 class="w3-xlarge w3-text-red"><b>Index</b></h1>
     <h4>System Object</h4>
@@ -117,6 +117,7 @@ body {font-size:16px;}
     </p>
   </div>
 
+  <!-- Digital Analytics Pages -->
   <div class="w3-container" style="margin-top:20px" v-else>
     <h1 class="w3-xlarge w3-text-red"><b>{{ page_categories[current_category_index] }}</b></h1>
     <h4>{{ current_page }}</h4>
