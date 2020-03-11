@@ -3,6 +3,7 @@ var digital_analytics = new Vue({
   el: '#digital_analytics',
   data: {
     digital_analytics_2020: {},
+    page_categories: ["System Object", "JSO (JavaScript Object)", "HTML5 data-analytics-* Attributes"],
     pages: [],
     show_menu_bar: true,
     current_category_index: -1,
@@ -22,8 +23,10 @@ var digital_analytics = new Vue({
     setCurrentCategoryPage: function (categoryIndex, pageIndex) {
       this.current_category_index = categoryIndex;
       this.current_page = null;
-      if (categoryIndex >= 0) this.current_page = this.pages[categoryIndex][pageIndex];
-      console.log("wz:setCurrentCategoryPage:" + this.current_category_index + "|" + this.current_page);
+      if (categoryIndex >= 0) {
+        if (pageIndex < 0) this.current_page = "View detail of " + this.page_categories[categoryIndex];
+        else this.current_page = this.pages[categoryIndex][pageIndex];
+      }
     },
     showMenuBar: function (showFlag) {
       if (showFlag) {
@@ -33,8 +36,17 @@ var digital_analytics = new Vue({
         this.$refs.menuSidebar.style.display = "none";
         this.$refs.menuOverlay.style.display = "none";
       }
-      console.log("wz:showMenuBar:" + showFlag + "|" + this.$refs.menuSidebar);
     },
+    pageDescription: function () {
+      var description_body = null;
+      if (this.digital_analytics_2020[this.current_page] !== undefined) {
+        description_body = "";
+        this.digital_analytics_2020[this.current_page].description.forEach( function(line) {
+          description_body += line + "<br />";
+        });
+      }
+      return description_body;
+    },      
     scrollPageTop: function () {
       $('html, body').animate({scrollTop: 0}, 'fast');
     },
