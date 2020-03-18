@@ -2,26 +2,349 @@
   "URL": {
     "name": "URL Object",
     "description": [
-      "Domain&nbsp;",
-      "&nbsp;window.location.hostname;<br />",
-      "&nbsp;",
-      "Path&nbsp;",
-      "&nbsp;window.location.pathname;<br />",
-      "&nbsp;",
-      "Parameters&nbsp;",
-      "&nbsp;window.location.search;<br />",
-      "&nbsp;",
-      "URL&nbsp;",
-      "&nbsp;window.location.href;<br />",
-      "&nbsp;"
+      "Domain :",
+      "Launch | Data Element | Core | Page Info | Hostname<br />",
+      "Path :",
+      "Launch | Data Element | Core | Page Info | Pathname<br />",
+      "Parameters :",
+      "Launch | Data Element | Core | Query String Parameter | <i>name</i><br />",
+      "URL :",
+      "Launch | Data Element | Core | Page Info | URL<br />"
     ]
   },
   "Timestamp": {
     "name": "Timestamp Object",
     "description": [
-      "Date()&nbsp;",
-      "&nbsp;// used for app start and complete, need to standardize format<br />",
-      "&nbsp;"
+      "Date() :",
+      "// used for app start and complete, need to standardize format<br />"
+    ]
+  },
+  "Other": {
+    "name": "Other Object",
+    "description": [
+      "ECVID :",
+      "Adobe Experience Cloud Visitor ID<br />",
+      "Other(s) :",
+      "Referrel URL, ...<br />"
+    ]
+  },
+  "Root": {
+    "name": "Root Object (Initialize)",
+    "description": [
+      "A data layer JSO is essentially a JavaScript object to collect data about web site that the digital analytics team will extract values from in order to pass into Adobe Launch for further handling. <br />",
+      "To add the data layer JSO to your site, insert the following code in the &lt;head&gt; of every page of your website.<br /><br />",
+      "&lt;script&gt;",
+      "&nbsp;&nbsp;var CWC_MLCA = CWC_MLCA || {};",
+      "&nbsp;&nbsp;CWC_MLCA.dataLayer = {};",
+      "&nbsp;&nbsp;CWC_MLCA.dataLayer.debug = &quot;true&quot;; // turn on debug information",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Site": {
+    "name": "Site Object",
+    "description": [
+      "The site object carries details about the web site and holds following values:<br />",
+      " &quot;brand&quot;: company name // not necessary ?",
+      " &quot;name&quot;: web site name",
+      " &quot;type&quot;: web site type for desktop or mobile // not necessary ?",
+      " &quot;environment&quot;: production / staging / development // not necessary ?",
+      " &quot;version&quot;: version number",
+      " &quot;lastBuildDate&quot;: build date",
+      " &quot;province&quot;: like &quot;ON&quot; // remove",
+      " &quot;country&quot;: like &quot;CA&quot; // field name also use &ldquo;geoRegion&rdquo;, remove<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "var site =",
+      "{",
+      "&nbsp;&nbsp;&quot;brand&quot;: &quot;Manulife&quot;,",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;Cover Me&quot;,",
+      "&nbsp;&nbsp;&quot;type&quot;: &quot;desktop&quot;,",
+      "&nbsp;&nbsp;&quot;environment&quot;: &quot;production&quot;,",
+      "&nbsp;&nbsp;&quot;version&quot;: &quot;1.0.1&quot;,",
+      "&nbsp;&nbsp;&quot;lastBuildDate&quot;: &quot;23/12/2019&quot;, // need standardize format",
+      "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;, //",
+      "&nbsp;&nbsp;&quot;country&quot;: &quot;CA&quot; // geoRegion",
+      "};",
+      "CWC_MLCA.dataLayer.site = site;",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Page": {
+    "name": "Page Object",
+    "description": [
+      "The page object carries details about each page of web site and holds following values:<br />",
+      " &quot;name&quot;: page name",
+      " &quot;title&quot;: page title",
+      " &quot;category&quot;: //",
+      " &quot;language&quot;: language (EN or FR)<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "var page =",
+      "{",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;covme:health-insurance:critical-illness:support&quot;,",
+      "&nbsp;&nbsp;&quot;title&quot;: &quot;CoverMe Health Insurance Support&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;&quot;,",
+      "&nbsp;&nbsp;&quot;language&quot;: &quot;EN&quot;",
+      "};",
+      "CWC_MLCA.dataLayer.page = page;",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Products": {
+    "name": "Product(s) Array Object",
+    "description": [
+      "The product(s) object carries details about each product of web site and holds following values:<br />",
+      " &quot;name&quot;: product name",
+      " &quot;productID&quot;: product ID",
+      " &quot;category&quot;: product category",
+      " &quot;group&quot;: product group",
+      " &quot;coverage&quot;: day/time",
+      " &quot;value&quot;: $//",
+      " &quot;tipInfo&quot;: description<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.products = [];",
+      "CWC_MLCA.dataLayer.products.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel in Canada&quot;,",
+      "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti01234567&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;travel insurance&quot;, //",
+      "&nbsp;&nbsp;&quot;group&quot;: &quot;insurance&quot;, //",
+      "&nbsp;&nbsp;&quot;coverage&quot;: &quot;45 days&quot;, //",
+      "&nbsp;&nbsp;&quot;value&quot;: &quot;$100&quot;, //",
+      "&nbsp;&nbsp;&quot;tipInfo&quot;: &quot;single coverage: 45 days&quot; //description",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Forms": {
+    "name": "Application/Forms/Quote/Tool Array Object",
+    "description": [
+      "The application/forms/quote/tool are object carries details about multiple steps of process and holds following values:<br />",
+      " &quot;name&quot;: application/forms/quote/tool name",
+      " &quot;appID&quot;: app ID",
+      " &quot;step&quot;: 1, 2, 3 … (step number) // separate into 3 groups: start, in-between, complete",
+      " &quot;type&quot;: application / quote / tool",
+      " &quot;event&quot;: event of each steps needs to push into event object<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.apps = [];",
+      "CWC_MLCA.dataLayer.apps.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;LifeInsuranceCaculate&quot;,",
+      "&nbsp;&nbsp;&quot;appID&quot;: &quot;LI01234567&quot;,",
+      "&nbsp;&nbsp;&quot;step&quot;: &quot;quote start&quot;, //",
+      "&nbsp;&nbsp;&quot;type&quot;: &quot;quote&quot; //",
+      "}",
+      ");",
+      "CWC_MLCA.dataLayer.events.push(&quot;quote:start&quot;); // ?",
+      "CWC_MLCA.dataLayer.events.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;action&quot;: &quot;submit-ti012&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;submit&quot;,",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel Insurance Quote&quot;, //",
+      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Travel Insurance Prompt 2020&quot; //",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Events": {
+    "name": "Event(s) Array Object",
+    "description": [
+      "The event(s) object carries details about event (include event history) and holds following values:<br />",
+      " &quot;action&quot;: unique event ID different with previous event",
+      " &quot;category&quot;: transaction / click / exit / download / redirect / submit / content",
+      " &quot;label&quot;: event name",
+      " &quot;detail&quot;: like campaign ID related to the event<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.products = [];",
+      "CWC_MLCA.dataLayer.products.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;action&quot;: &quot;submit-ti012&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;submit&quot;, //",
+      "&nbsp;&nbsp;&quot;label&quot;: &quot;Travel Insurance Quote&quot;, //",
+      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Travel Insurance Prompt 2020&quot; //detail description",
+      "}",
+      ");",
+      "&lt;/script&gt;<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.products = [];",
+      "CWC_MLCA.dataLayer.products.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;action&quot;: &quot;transaction-pb012&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;transaction&quot;, //",
+      "&nbsp;&nbsp;&quot;label&quot;: &quot;Money Transfer&quot;, //",
+      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Money Transfer Transaction Saving 2020&quot; //detail description",
+      "}",
+      ");",
+      "&lt;/script&gt;<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.products = [];",
+      "CWC_MLCA.dataLayer.products.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;action&quot;: &quot;content-show012&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;content&quot;, //",
+      "&nbsp;&nbsp;&quot;label&quot;: &quot;Mortgage Pre-Approval&quot;, //",
+      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Mortgage Pre-Approval Prompt 2020&quot; //detail description",
+      "}",
+      ");",
+      "&lt;/script&gt;<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.products = [];",
+      "CWC_MLCA.dataLayer.products.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;action&quot;: &quot;download-pdf-policy012&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;download&quot;, //",
+      "&nbsp;&nbsp;&quot;label&quot;: &quot;Policy Booklet Download&quot;, //",
+      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Policy Booklet 2020&quot; //detail description",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Transaction": {
+    "name": "Transaction Object",
+    "description": [
+      "The transaction object carries details about latest transaction and holds following values:<br />",
+      " &quot;transactionID&quot;: transaction ID",
+      " &quot;userID&quot;: link to user",
+      " &quot;mount&quot;: transaction mount",
+      " &quot;category&quot;: transaction product category",
+      " &quot;product&quot;: productID / product name",
+      " &quot;event&quot;: event of transaction needs to push into event object<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "var transaction =",
+      "{",
+      "&nbsp;&nbsp;&quot;transactionID&quot;: &quot;t012&quot;,",
+      "&nbsp;&nbsp;&quot;userID&quot;: &quot;user012&quot;,",
+      "&nbsp;&nbsp;&quot;mount&quot;: &quot;$120&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;transfer&quot;,",
+      "&nbsp;&nbsp;&quot;product&quot;: &quot;bank saving&quot;",
+      "};",
+      "CWC_MLCA.dataLayer.transaction = transaction;",
+      "CWC_MLCA.dataLayer.events.push(&quot;transaction:transfer&quot;); // ?",
+      "CWC_MLCA.dataLayer.events.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;action&quot;: &quot;transaction-pb012&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;transaction&quot;,",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;Money Transfer&quot;, //",
+      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Money Transfer Transaction Saving 2020&quot; //",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Components": {
+    "name": "Component(s) Array Object",
+    "description": [
+      "The component(s) object is intended to capture information about content components included as part of a page. Component holds following values:<br />",
+      " &quot;name&quot;: component name",
+      " &quot;componentID&quot;: component ID//",
+      " &quot;description&quot;: component description<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.components = [];",
+      "CWC_MLCA.dataLayer.components.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;CreditLineApprove&quot;,",
+      "&nbsp;&nbsp;&quot;componentID&quot;: &quot;component012&quot;, //",
+      "&nbsp;&nbsp;&quot;description&quot;: &quot;line of credit approved&quot; //description",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Users": {
+    "name": "User(s) Array Object",
+    "description": [
+      "The user(s) object carries details about all the user information of the web site and holds following values:<br />",
+      " &quot;userID&quot;: user ID",
+      " &quot;userRole&quot;: user Role",
+      " &quot;userGroup&quot;: user Group",
+      " &quot;advisorID&quot;: advisor ID / admin ID",
+      " &quot;status&quot;: status description<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.users = [];",
+      "CWC_MLCA.dataLayer.users.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;userID&quot;: &quot;user01234567&quot;,",
+      "&nbsp;&nbsp;&quot;userRole&quot;: &quot;role01234567&quot;,",
+      "&nbsp;&nbsp;&quot;userGroup&quot;: &quot;group01234567&quot;,",
+      "&nbsp;&nbsp;&quot;advisorID&quot;: &quot;advisor01234567&quot;,",
+      "&nbsp;&nbsp;&quot;status&quot;: &quot;login&quot;",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Customers": {
+    "name": "Customer(s) Array Object",
+    "description": [
+      "The customer(s) object carries details about all the custom information of the web site and holds following values:<br />",
+      " &quot;customerStatus&quot;: where come from",
+      " &quot;gender&quot;: F / M / O",
+      " &quot;age&quot;: age number",
+      " &quot;smokeStatus&quot;: //",
+      " &quot;province&quot;: province",
+      " &quot;profile&quot;: primary / secondary / dependant / traveller",
+      " &quot;employment&quot;: employment status<br /><br />",
+      "Sample code:<br />",
+      "&lt;script&gt;",
+      "CWC_MLCA.dataLayer.customers = [];",
+      "CWC_MLCA.dataLayer.customers.push(",
+      "{",
+      "&nbsp;&nbsp;&quot;customerStatus&quot;: &quot;prospect&quot;,",
+      "&nbsp;&nbsp;&quot;gender&quot;: &quot;F&quot;,",
+      "&nbsp;&nbsp;&quot;age&quot;: &quot;40&quot;,",
+      "&nbsp;&nbsp;&quot;smokeStatus&quot;: &quot;non-smoke&quot;,",
+      "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;,",
+      "&nbsp;&nbsp;&quot;profile&quot;: &quot;primary&quot;,",
+      "&nbsp;&nbsp;&quot;employment&quot;: &quot;self-employed&quot;",
+      "}",
+      ");",
+      "&lt;/script&gt;"
+    ]
+  },
+  "Redirect": {
+    "name": "data-analytics-redirect",
+    "description": [
+      "The data-analytics-redirect attribute carries the redirect link value.<br />",
+      "&lt;a href=&rdquo;domain.ca/redirect01&rdquo; data-analytics-redirect=&rdquo;domain-abc&rdquo;&gt;ABC Site&lt;/a&gt;",
+      "&lt;button id=&rdquo;redirect02&rdquo; data-analytics-redirect=&rdquo;domain-cde&rdquo;&gt;CDE Site&lt;/button&gt;"
+    ]
+  },
+  "Exit": {
+    "name": "data-analytics-exit",
+    "description": [
+      "The data-analytics-exit attribute carries the exit link value.<br />",
+      "&lt;button id=&rdquo;other01&rdquo; data-analytics-exit=&rdquo;other01&rdquo;&gt;Other Site&lt;/button&gt;"
+    ]
+  },
+  "Download": {
+    "name": "data-analytics-download",
+    "description": [
+      "The data-analytics-download attribute carries the download file information.<br />",
+      "&lt;a href=&rdquo;domain.ca/policy.pdf&rdquo; data-analytics-download=&rdquo;pdf&rdquo; data-analytics-download-text=&rdquo;Insurance Policy&rdquo; data-analytics-download-filename=&rdquo;ManulifeInsurancePolicy.pdf&rdquo;&gt;Policy&lt;/a&gt;<br />",
+      "&lt;button id=&rdquo;investment-doc-01&rdquo; data-analytics-download=&rdquo;doc&rdquo; data-analytics-download-text=&rdquo;Investment Products&rdquo; data-analytics-download-filename=&rdquo;InvestmentProducts.doc&rdquo;&gt;Investment&lt;/button&gt;"
+    ]
+  },
+  "Click": {
+    "name": "data-analytics-click",
+    "description": [
+      "The data-analytics-click attribute indicate the click (like content expend/show/hidden) need to be track.<br />",
+      "&lt;div data-analytics-click=&rdquo;sample-view-detail&rdquo;&gt;&hellip;&lt;/div&gt;"
+    ]
+  },
+  "Content": {
+    "name": "data-analytics-content",
+    "description": [
+      "The data-analytics-content attribute indicate the content value need to be track.<br />",
+      "&lt;div data-analytics-content=&rdquo;test-layout-01&rdquo;&gt;&hellip;&lt;/div&gt;"
     ]
   }
 }
