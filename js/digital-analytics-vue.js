@@ -4,18 +4,16 @@ var digital_analytics = new Vue({
   data: {
     digital_analytics_2020: {},
     page_categories: ["System Object", "JSO (JavaScript Object)", "HTML5 data-analytics-* Attributes"],
-    pages: [],
+    pages: [
+      [ "URL", "Timestamp", "Other" ],
+      [ "Root", "Site", "Page", "Products", "Forms", "Events", "Transaction", "Components", "Users", "Customers" ],
+      [ "Redirect", "Exit", "Download", "Click", "Content" ]
+    ],
     show_menu_bar: true,
     current_category_index: -1,
     current_page: null
   },
   mounted: function() {
-    var pageSystem = [ "URL", "Timestamp", "Other" ];
-    var pageDataLayer = [ "Root", "Site", "Page", "Products", "Forms", "Events", "Transaction", "Components", "Users", "Customers" ];
-    var pageAttribute = [ "Redirect", "Exit", "Download", "Click", "Content" ];
-    this.pages.push(pageSystem);
-    this.pages.push(pageDataLayer);
-    this.pages.push(pageAttribute);
     this.setCurrentCategoryPage(-1, -1);
     $.getJSON('json/digital_analytics.json').then((data) => {this.digital_analytics_2020 = data});
     window.CWC_MLCA.site();
