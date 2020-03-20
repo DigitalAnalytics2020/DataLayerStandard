@@ -116,7 +116,20 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click link to add the product",
+      "sample": [
+        "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel in Canada&quot;,",
+        "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti01234567&quot;,",
+        "&nbsp;&nbsp;&quot;category&quot;: &quot;travel insurance&quot;,",
+        "&nbsp;&nbsp;&quot;group&quot;: &quot;insurance&quot;,",
+        "&nbsp;&nbsp;&quot;coverage&quot;: &quot;45 days&quot;,",
+        "&nbsp;&nbsp;&quot;value&quot;: &quot;$100&quot;,",
+        "&nbsp;&nbsp;&quot;tipInfo&quot;: &quot;single coverage: 45 days&quot;"
+      ],
+      "sampleflag": false
+    }
   },
   "Forms": {
     "name": "Application/Forms/Quote/Tool Array Object",
@@ -251,7 +264,24 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click link to set transaction and push the event",
+      "sample": [
+        "&nbsp;&nbsp;<b><i>set transaction</i> :</b>",
+        "&nbsp;&nbsp;&quot;transactionID&quot;: &quot;t012&quot;,",
+        "&nbsp;&nbsp;&quot;userID&quot;: &quot;user012&quot;,",
+        "&nbsp;&nbsp;&quot;mount&quot;: &quot;$120&quot;,",
+        "&nbsp;&nbsp;&quot;category&quot;: &quot;transfer&quot;,",
+        "&nbsp;&nbsp;&quot;product&quot;: &quot;bank saving&quot;",
+        "<br />&nbsp;&nbsp;<b><i>push event</i> :</b>",
+        "&nbsp;&nbsp;&quot;action&quot;: &quot;transaction-pb012&quot;,",
+        "&nbsp;&nbsp;&quot;category&quot;: &quot;transaction&quot;,",
+        "&nbsp;&nbsp;&quot;name&quot;: &quot;Money Transfer&quot;,",
+        "&nbsp;&nbsp;&quot;detail&quot;: &quot;Money Transfer Transaction Saving 2020&quot;"
+      ],
+      "sampleflag": false
+    }
   },
   "Components": {
     "name": "Component(s) Array Object",
@@ -271,7 +301,16 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click link to add the component",
+      "sample": [
+        "&nbsp;&nbsp;&quot;name&quot;: &quot;CreditLineApprove&quot;,",
+        "&nbsp;&nbsp;&quot;componentID&quot;: &quot;component012&quot;,",
+        "&nbsp;&nbsp;&quot;description&quot;: &quot;line of credit approved&quot;"
+      ],
+      "sampleflag": false
+    }
   },
   "Users": {
     "name": "User(s) Array Object",
@@ -295,7 +334,18 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click link to add the user",
+      "sample": [
+        "&nbsp;&nbsp;&quot;userID&quot;: &quot;user01234567&quot;,",
+        "&nbsp;&nbsp;&quot;userRole&quot;: &quot;role01234567&quot;,",
+        "&nbsp;&nbsp;&quot;userGroup&quot;: &quot;group01234567&quot;,",
+        "&nbsp;&nbsp;&quot;advisorID&quot;: &quot;advisor01234567&quot;,",
+        "&nbsp;&nbsp;&quot;status&quot;: &quot;login&quot;"
+      ],
+      "sampleflag": false
+    }
   },
   "Customers": {
     "name": "Customer(s) Array Object",
@@ -323,7 +373,20 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click link to add the customer",
+      "sample": [
+        "&nbsp;&nbsp;&quot;customerStatus&quot;: &quot;prospect&quot;,",
+        "&nbsp;&nbsp;&quot;gender&quot;: &quot;F&quot;,",
+        "&nbsp;&nbsp;&quot;age&quot;: &quot;40&quot;,",
+        "&nbsp;&nbsp;&quot;smokeStatus&quot;: &quot;non-smoke&quot;,",
+        "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;,",
+        "&nbsp;&nbsp;&quot;profile&quot;: &quot;primary&quot;,",
+        "&nbsp;&nbsp;&quot;employment&quot;: &quot;self-employed&quot;"
+      ],
+      "sampleflag": false
+    }
   },
   "Redirect": {
     "name": "data-analytics-redirect",
