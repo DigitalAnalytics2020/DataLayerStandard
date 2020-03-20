@@ -15,7 +15,18 @@ var digital_analytics = new Vue({
   },
   mounted: function() {
     this.setCurrentCategoryPage(-1, -1);
-    $.getJSON('json/digital_analytics.json').then((data) => {this.digital_analytics_2020 = data});
+    $.getJSON('json/digital_analytics.json').then((data) => {
+      this.digital_analytics_2020 = data
+      if (window.location.search.startsWith("?form")) {
+        this.setCurrentCategoryPage(1, 4);
+        if (window.location.search.startsWith("?form0=")) this.digital_analytics_2020[this.current_page].demo.formindex = 1;
+        if (window.location.search.startsWith("?form1=")) this.digital_analytics_2020[this.current_page].demo.formindex = 2;
+        if (window.location.search.startsWith("?form2=")) this.digital_analytics_2020[this.current_page].demo.formindex = 3;
+        window.CWC_MLCA.form("demo application", "app012", "step-" + this.digital_analytics_2020[this.current_page].demo.formindex, "application");
+        window.CWC_MLCA.event("Demo Application Submit", "submit", "Demo Application Step-" + this.digital_analytics_2020[this.current_page].demo.formindex, "Demo Application Submit Step-" + this.digital_analytics_2020[this.current_page].demo.formindex);
+        this.scrollPageBottom();
+      }
+    });
     window.CWC_MLCA.site();
   },
   methods: {
@@ -61,6 +72,37 @@ var digital_analytics = new Vue({
         });
       }
       return description_body;
+    },      
+    pageDemo: function () {
+      var demo = null;
+      if (this.digital_analytics_2020[this.current_page] !== undefined && this.digital_analytics_2020[this.current_page].demo !== undefined) {
+        demo = {};
+        demo.description = this.digital_analytics_2020[this.current_page].demo.description;
+        if (this.digital_analytics_2020[this.current_page].demo.sample !== undefined && this.digital_analytics_2020[this.current_page].demo.sampleflag !== undefined) {
+          demo.sampleflag = this.digital_analytics_2020[this.current_page].demo.sampleflag;
+          demo.sample = "";
+          this.digital_analytics_2020[this.current_page].demo.sample.forEach( function(line) {
+            demo.sample += line + "<br />";
+          });
+        }
+        if (this.digital_analytics_2020[this.current_page].demo.forms !== undefined && this.digital_analytics_2020[this.current_page].demo.formindex !== undefined) {
+          demo.formindex = this.digital_analytics_2020[this.current_page].demo.formindex;
+          demo.forms = this.digital_analytics_2020[this.current_page].demo.forms;
+        }
+      }
+      return demo;
+    },      
+    setSampleDataLayer: function () {
+      if (this.digital_analytics_2020[this.current_page] !== undefined && this.digital_analytics_2020[this.current_page].demo !== undefined) {
+        if (this.digital_analytics_2020[this.current_page].demo.sample !== undefined && this.digital_analytics_2020[this.current_page].demo.sampleflag !== undefined) {
+          this.digital_analytics_2020[this.current_page].demo.sampleflag = !this.digital_analytics_2020[this.current_page].demo.sampleflag;
+          if (this.digital_analytics_2020[this.current_page].demo.sampleflag) {
+            if (this.current_page == "Events") window.CWC_MLCA.event("submit-ti012", "submit", "Travel Insurance", "Travel Insurance Prompt 2020");
+          }
+          console.log("WZ:" + this.current_page);
+        }
+      }
+      this.scrollPageBottom();
     },      
     scrollPageTop: function () {
       $('html, body').animate({scrollTop: 0}, 'fast');
