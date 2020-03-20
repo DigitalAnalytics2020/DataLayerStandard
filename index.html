@@ -111,25 +111,25 @@ body {font-size:16px;}
   </div>
 
   <!-- Contact -->
-  <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Contact.</b></h1>
+  <div class="w3-container w3-border w3-border-red" style="margin-top:75px" v-if="pageDemo() != null">
+    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Demo</b></h1>
     <hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
-    <p class="w3-text-blue-grey">Fill out the form and fill me in with the details :) We love meeting you!</p>
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label class="w3-text-blue-grey">Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label class="w3-text-blue-grey">Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label class="w3-text-blue-grey">Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">Send Message</button>
-    </form>  
+    <h5 class="w3-text-blue-grey">{{ pageDemo().description }}</h5>
+    <div v-if="pageDemo().formindex !== undefined">
+      <form action="?step=form" v-if="pageDemo().formindex < 3">
+        <div class="w3-section">
+          <label class="w3-text-blue-grey">{{ pageDemo().forms[pageDemo().formindex] }}</label>
+          <input class="w3-input w3-border" type="text" :name="'form' + pageDemo().formindex" required>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">{{ pageDemo().formindex < 2 ? 'Next' : 'Submit' }}</button>
+      </form>
+      <h6 class="w3-text-blue" v-else>Thanks for submit the forms !</h6>
+    </div>
+    <div v-if="pageDemo().sampleflag !== undefined">
+      <a href="#" class="w3-bar-item" @click="setSampleDataLayer()">Sample Data Layer <span class="w3-text-red"><b>{{ pageDemo().sampleflag ? ' « ' : ' » ' }}</b></span></a>
+      <p v-if="pageDemo().sampleflag" v-html="pageDemo().sample">{{ pageDemo().sample }}</p>
+    </div>
+    <p>&nbsp;</p>
   </div>
 
 <!-- End page content -->
