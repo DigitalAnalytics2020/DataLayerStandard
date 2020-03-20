@@ -148,7 +148,12 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click next button to submit each forms",
+      "forms": [ "Input value of start step", "Input value of in-between step", "Input value of complete step" ],
+      "formindex": 0
+    }
   },
   "Events": {
     "name": "Event(s) Array Object",
@@ -160,8 +165,8 @@
       " &quot;detail&quot;: like campaign ID related to the event<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.products = [];",
-      "CWC_MLCA.dataLayer.products.push(",
+      "CWC_MLCA.dataLayer.events = [];",
+      "CWC_MLCA.dataLayer.events.push(",
       "{",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;submit-ti012&quot;,",
       "&nbsp;&nbsp;&quot;category&quot;: &quot;submit&quot;, //",
@@ -171,8 +176,8 @@
       ");",
       "&lt;/script&gt;<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.products = [];",
-      "CWC_MLCA.dataLayer.products.push(",
+      "CWC_MLCA.dataLayer.events = [];",
+      "CWC_MLCA.dataLayer.events.push(",
       "{",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;transaction-pb012&quot;,",
       "&nbsp;&nbsp;&quot;category&quot;: &quot;transaction&quot;, //",
@@ -182,8 +187,8 @@
       ");",
       "&lt;/script&gt;<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.products = [];",
-      "CWC_MLCA.dataLayer.products.push(",
+      "CWC_MLCA.dataLayer.events = [];",
+      "CWC_MLCA.dataLayer.events.push(",
       "{",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;content-show012&quot;,",
       "&nbsp;&nbsp;&quot;category&quot;: &quot;content&quot;, //",
@@ -193,8 +198,8 @@
       ");",
       "&lt;/script&gt;<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.products = [];",
-      "CWC_MLCA.dataLayer.products.push(",
+      "CWC_MLCA.dataLayer.events = [];",
+      "CWC_MLCA.dataLayer.events.push(",
       "{",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;download-pdf-policy012&quot;,",
       "&nbsp;&nbsp;&quot;category&quot;: &quot;download&quot;, //",
@@ -203,7 +208,17 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Click link to push the event",
+      "sample": [
+        "&nbsp;&nbsp;&quot;action&quot;: &quot;submit-ti012&quot;,",
+        "&nbsp;&nbsp;&quot;category&quot;: &quot;submit&quot;,",
+        "&nbsp;&nbsp;&quot;label&quot;: &quot;Travel Insurance Quote&quot;,",
+        "&nbsp;&nbsp;&quot;detail&quot;: &quot;Travel Insurance Prompt 2020&quot;"
+      ],
+      "sampleflag": false
+    }
   },
   "Transaction": {
     "name": "Transaction Object",
@@ -345,6 +360,14 @@
     "description": [
       "The data-analytics-content attribute indicate the content value need to be track.<br />",
       "&lt;div data-analytics-content=&rdquo;test-layout-01&rdquo;&gt;&hellip;&lt;/div&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "Test",
+      "sample": [
+        "The data-analytics-content attribute indicate the content value need to be track.<br />",
+        "&lt;div data-analytics-content=&rdquo;test-layout-01&rdquo;&gt;&hellip;&lt;/div&gt;"
+      ],
+      "sampleflag": false
+    }
   }
 }
