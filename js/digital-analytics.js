@@ -27,6 +27,28 @@ var CWC_MLCA = CWC_MLCA || {
       "category": category, 
       "language": language 
     }
+  },
+
+  // Push Form Information
+  form: function(name, appID, step, type) {
+    this.dataLayer.apps = this.dataLayer.apps || [];
+    this.dataLayer.apps.push({
+      "name": name,
+      "appID": appID, 
+      "step": step,
+      "type": type
+    });
+  },
+
+  // Push Event Information
+  event: function(action, category, name, detail) {
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "action": action, 
+      "category": category,
+      "name": name,
+      "detail": detail
+    });
   }
 
 };
