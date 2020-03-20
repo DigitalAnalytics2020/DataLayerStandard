@@ -116,7 +116,7 @@ body {font-size:16px;}
     <hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
     <h5 class="w3-text-blue-grey">{{ pageDemo().description }}</h5>
     <div v-if="pageDemo().formindex !== undefined">
-      <form action="?step=form" v-if="pageDemo().formindex < 3">
+      <form action="#" v-if="pageDemo().formindex < 3">
         <div class="w3-section">
           <label class="w3-text-blue-grey">{{ pageDemo().forms[pageDemo().formindex] }}</label>
           <input class="w3-input w3-border" type="text" :name="'form' + pageDemo().formindex" required>
