@@ -394,29 +394,61 @@
       "The data-analytics-redirect attribute carries the redirect link value.<br />",
       "&lt;a href=&rdquo;domain.ca/redirect01&rdquo; data-analytics-redirect=&rdquo;domain-abc&rdquo;&gt;ABC Site&lt;/a&gt;",
       "&lt;button id=&rdquo;redirect02&rdquo; data-analytics-redirect=&rdquo;domain-cde&rdquo;&gt;CDE Site&lt;/button&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "data-analytics-redirect",
+      "sample": [
+        "Click &rdquo;sample redirect link&rdquo; which contain <i>data-analytics-redirect</i> attribute:<br />",
+        "<a href=\"#\" class=\"w3-xlarge w3-text-indigo w3-light-grey\" data-analytics-redirect=\"redirect-url\">sample redirect link</a>"
+      ],
+      "sampleflag": true
+    }
   },
   "Exit": {
     "name": "data-analytics-exit",
     "description": [
       "The data-analytics-exit attribute carries the exit link value.<br />",
       "&lt;button id=&rdquo;other01&rdquo; data-analytics-exit=&rdquo;other01&rdquo;&gt;Other Site&lt;/button&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "data-analytics-exit",
+      "sample": [
+        "Click &rdquo;sample exit link&rdquo; which contain <i>data-analytics-exit</i> attribute:<br />",
+        "<a href=\"#\" class=\"w3-xlarge w3-text-indigo w3-light-grey\" data-analytics-exit=\"exit-url\">sample exit link</a>"
+      ],
+      "sampleflag": true
+    }
   },
   "Download": {
     "name": "data-analytics-download",
     "description": [
       "The data-analytics-download attribute carries the download file information.<br />",
-      "&lt;a href=&rdquo;domain.ca/policy.pdf&rdquo; data-analytics-download=&rdquo;pdf&rdquo; data-analytics-download-text=&rdquo;Insurance Policy&rdquo; data-analytics-download-filename=&rdquo;ManulifeInsurancePolicy.pdf&rdquo;&gt;Policy&lt;/a&gt;<br />",
+      "&lt;a href=&rdquo;domain.ca/policy.pdf&rdquo; data-analytics-download=&rdquo;pdf&rdquo; data-analytics-download-text=&rdquo;Insurance Policy&rdquo; data-analytics-download-filename=&rdquo;SampleInsurancePolicy.pdf&rdquo;&gt;Policy&lt;/a&gt;<br />",
       "&lt;button id=&rdquo;investment-doc-01&rdquo; data-analytics-download=&rdquo;doc&rdquo; data-analytics-download-text=&rdquo;Investment Products&rdquo; data-analytics-download-filename=&rdquo;InvestmentProducts.doc&rdquo;&gt;Investment&lt;/button&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "data-analytics-download",
+      "sample": [
+        "Click &rdquo;sample download link&rdquo; which contain <i>data-analytics-download</i> attribute:<br />",
+        "<a href=\"pdf/sample.pdf\" target=\"_balnk\" class=\"w3-xlarge w3-text-indigo w3-light-grey\" data-analytics-download=\"pdf\" data-analytics-download-text=\"Sample\" data-analytics-download-file=\"sample.pdf\">Sample PDF</a>"
+      ],
+      "sampleflag": true
+    }
   },
   "Click": {
     "name": "data-analytics-click",
     "description": [
       "The data-analytics-click attribute indicate the click (like content expend/show/hidden) need to be track.<br />",
       "&lt;div data-analytics-click=&rdquo;sample-view-detail&rdquo;&gt;&hellip;&lt;/div&gt;"
-    ]
+    ],
+    "demo": {
+      "description": "data-analytics-click",
+      "sample": [
+        "Click &rdquo;sample-view-detail&rdquo; link which contain <i>data-analytics-click</i> attribute:<br />",
+        "<a href=\"#\" class=\"w3-xlarge w3-text-indigo w3-light-grey\" data-analytics-click=\"sample-view-detail\">sample-view-detail</a>"
+      ],
+      "sampleflag": true
+    }
   },
   "Content": {
     "name": "data-analytics-content",
@@ -425,12 +457,12 @@
       "&lt;div data-analytics-content=&rdquo;test-layout-01&rdquo;&gt;&hellip;&lt;/div&gt;"
     ],
     "demo": {
-      "description": "Test",
+      "description": "data-analytics-content",
       "sample": [
-        "The data-analytics-content attribute indicate the content value need to be track.<br />",
-        "&lt;div data-analytics-content=&rdquo;test-layout-01&rdquo;&gt;&hellip;&lt;/div&gt;"
+        "Following &rdquo;test-layout-01&rdquo; contain <i>data-analytics-content</i> attribute:<br />",
+        "<h5 class=\"w3-text-indigo w3-light-grey\" data-analytics-content=\"test-layout-01\">test-layout-01</h5>"
       ],
-      "sampleflag": false
+      "sampleflag": true
     }
   }
 }
