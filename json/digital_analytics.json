@@ -459,8 +459,8 @@
     "demo": {
       "description": "data-analytics-content",
       "sample": [
-        "Following &rdquo;test-layout-01&rdquo; contain <i>data-analytics-content</i> attribute:<br />",
-        "<h5 class=\"w3-text-indigo w3-light-grey\" data-analytics-content=\"test-layout-01\">test-layout-01</h5>"
+        "Following &rdquo;test layout content&rdquo; contain <i>data-analytics-content</i> attribute:<br />",
+        "<h5 class=\"w3-text-indigo w3-light-grey\" data-analytics-content=\"test-layout-content\">test layout content</h5>"
       ],
       "sampleflag": true
     }
