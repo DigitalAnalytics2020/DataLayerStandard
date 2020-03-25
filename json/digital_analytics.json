@@ -430,7 +430,7 @@
       "description": "data-analytics-download",
       "sample": [
         "Click &rdquo;sample download link&rdquo; which contain <i>data-analytics-download</i> attribute:<br />",
-        "<a href=\"pdf/sample.pdf\" target=\"_balnk\" class=\"w3-xlarge w3-text-indigo w3-light-grey\" data-analytics-download=\"pdf\" data-analytics-download-text=\"Sample\" data-analytics-download-file=\"sample.pdf\">Sample PDF</a>"
+        "<a href=\"pdf/sample.pdf\" target=\"_balnk\" class=\"w3-xlarge w3-text-indigo w3-light-grey\" data-analytics-download=\"pdf\" data-analytics-download-text=\"Sample\" data-analytics-download-filename=\"sample.pdf\">Sample PDF</a>"
       ],
       "sampleflag": true
     }
