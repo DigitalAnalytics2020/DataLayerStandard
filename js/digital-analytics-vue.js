@@ -27,7 +27,7 @@ var digital_analytics = new Vue({
         this.scrollPageBottom();
       }
     });
-    window.CWC_MLCA.site();
+    window.CWC_MLCA.site("Test Co.", "test", "desktop", "development", "0.0.1", "2020-02-02");
   },
   methods: {
     setCurrentCategoryPage: function (categoryIndex, pageIndex) {
@@ -99,7 +99,7 @@ var digital_analytics = new Vue({
           if (this.digital_analytics_2020[this.current_page].demo.sampleflag) {
             if (this.current_page == "Products") window.CWC_MLCA.product("Travel in Canada", "ti01234567", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
             if (this.current_page == "Events") {
-              window.CWC_MLCA.action("event", "submit-ti012", "submit", "Travel Insurance", "Travel Insurance Prompt 2020");
+              //window.CWC_MLCA.action("event", "submit-ti012", "submit", "Travel Insurance", "Travel Insurance Prompt 2020");
               window.CWC_MLCA.event("submit-ti012", "submit", "Travel Insurance", "Travel Insurance Prompt 2020");
             }
             if (this.current_page == "Transaction") {
