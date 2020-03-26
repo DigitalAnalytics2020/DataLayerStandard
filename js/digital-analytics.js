@@ -32,7 +32,7 @@ var CWC_MLCA = CWC_MLCA || {
   // Push Product Information
   product: function(name, productID, category, group, coverage, value, tipInfo) {
     this.dataLayer.products = this.dataLayer.products || [];
-    this.dataLayer.products.push({
+    this.dataLayer.products.unshift({
       "name": name,
       "productID": productID, 
       "category": category,
@@ -46,7 +46,7 @@ var CWC_MLCA = CWC_MLCA || {
   // Push Form Information
   form: function(name, appID, step, type) {
     this.dataLayer.apps = this.dataLayer.apps || [];
-    this.dataLayer.apps.push({
+    this.dataLayer.apps.unshift({
       "name": name,
       "appID": appID, 
       "step": step,
@@ -57,7 +57,7 @@ var CWC_MLCA = CWC_MLCA || {
   // Push Event Information
   event: function(action, category, name, detail) {
     this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.events.unshift({
       "action": action, 
       "category": category,
       "name": name,
@@ -79,7 +79,7 @@ var CWC_MLCA = CWC_MLCA || {
   // Push Component Information
   component: function(name, componentID, description) {
     this.dataLayer.components = this.dataLayer.components || [];
-    this.dataLayer.components.push({
+    this.dataLayer.components.unshift({
       "name": name,
       "componentID": componentID, 
       "description": description
@@ -89,7 +89,7 @@ var CWC_MLCA = CWC_MLCA || {
   // Push User Information
   user: function(userID, userRole, userGroup, advisorID, status) {
     this.dataLayer.users = this.dataLayer.users || [];
-    this.dataLayer.users.push({
+    this.dataLayer.users.unshift({
       "userID": userID,
       "userRole": userRole,
       "userGroup": userGroup,
@@ -101,7 +101,7 @@ var CWC_MLCA = CWC_MLCA || {
   // Push Customer Information
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
     this.dataLayer.customers = this.dataLayer.customers || [];
-    this.dataLayer.customers.push({
+    this.dataLayer.customers.unshift({
       "customerStatus": customerStatus,
       "gender": gender,
       "age": age,
