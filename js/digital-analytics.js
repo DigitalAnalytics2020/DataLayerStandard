@@ -29,6 +29,17 @@ var CWC_MLCA = CWC_MLCA || {
     }
   },
 
+  action: function(name, action, category, label, detail) {
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
+      "name": name, 
+      "action": action, 
+      "category": category,
+      "label": label,
+      "detail": detail
+    });
+  },
+
   // Push Product Information
   product: function(name, productID, category, group, coverage, value, tipInfo) {
     this.dataLayer.products = this.dataLayer.products || [];
