@@ -8,14 +8,14 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Set Site Information
-  site: function() {
+  site: function(brand, name, type, environment, version, lastBuildDate) {
     this.dataLayer.site = {
-      "brand": "Test Co.", 
-      "name": "test", 
-      "type": "desktop", 
-      "environment": "development", 
-      "version": "0.0.1", 
-      "lastBuildDate": "2020-02-02" // need standardize format
+      "brand": brand, 
+      "name": name, 
+      "type": type, 
+      "environment": environment, 
+      "version": version, 
+      "lastBuildDate": lastBuildDate
     }
   },
 
@@ -29,97 +29,108 @@ var CWC_MLCA = CWC_MLCA || {
     }
   },
 
-  action: function(event, action, category, label, detail) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
-      "event": event, 
-      "action": action, 
-      "category": category,
-      "label": label,
-      "detail": detail
-    });
-  },
-
   // Push Product Information
-  product: function(name, productID, category, group, coverage, value, tipInfo) {
-    this.dataLayer.products = this.dataLayer.products || [];
-    this.dataLayer.products.unshift({
-      "name": name,
-      "productID": productID, 
-      "category": category,
-      "group": group,
-      "coverage": coverage,
-      "value": value,
-      "tipInfo": tipInfo
+  product: function(name, productId, category, group, coverage, value, tipInfo) {
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "event": "product",
+      "product": {
+        "name": name,
+        "productId": productId, 
+        "category": category,
+        "group": group,
+        "coverage": coverage,
+        "value": value,
+        "tipInfo": tipInfo
+      }
     });
   },
 
   // Push Form Information
-  form: function(name, appID, step, type) {
-    this.dataLayer.apps = this.dataLayer.apps || [];
-    this.dataLayer.apps.unshift({
-      "name": name,
-      "appID": appID, 
-      "step": step,
-      "type": type
+  form: function(name, appId, step, type) {
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "event": "form",
+      "form": {
+        "name": name,
+        "appId": appId, 
+        "step": step,
+        "type": type
+      }
     });
   },
 
   // Push Event Information
-  event: function(action, category, label, detail) {
+  event: function(name, category, label, detail) {
     this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.unshift({
-      "action": action, 
-      "category": category,
-      "label": label,
-      "detail": detail
+    this.dataLayer.events.push({
+      "event": "event",
+      "action": {
+        "name": name, 
+        "category": category,
+        "label": label,
+        "detail": detail
+      }
     });
   },
 
   // Set Transaction Information
-  transaction: function(transactionID, userID, mount, category, product) {
-    this.dataLayer.transaction = {
-      "transactionID": transactionID, 
-      "userID": userID, 
-      "mount": mount, 
-      "category": category, 
-      "product": product 
-    }
+  transaction: function(transactionId, userId, mount, category, product) {
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "event": "transaction",
+      "transaction": {
+        "transactionId": transactionId, 
+        "userId": userId, 
+        "mount": mount, 
+        "category": category, 
+        "product": product 
+      }
+    });
   },
 
   // Push Component Information
-  component: function(name, componentID, description) {
-    this.dataLayer.components = this.dataLayer.components || [];
-    this.dataLayer.components.unshift({
-      "name": name,
-      "componentID": componentID, 
-      "description": description
+  component: function(name, componentId, description) {
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "event": "component",
+      "component": {
+        "name": name,
+        "componentId": componentId, 
+        "description": description
+      }
     });
   },
 
   // Push User Information
-  user: function(userID, userRole, userGroup, advisorID, status) {
-    this.dataLayer.users = this.dataLayer.users || [];
-    this.dataLayer.users.unshift({
-      "userID": userID,
-      "userRole": userRole,
-      "userGroup": userGroup,
-      "advisorID": advisorID, 
-      "status": status
+  user: function(userId, userRole, userGroup, advisorId, status) {
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "event": "user",
+      "user": {
+        "userId": userId,
+        "userRole": userRole,
+        "userGroup": userGroup,
+        "advisorId": advisorId, 
+        "status": status
+      }
     });
   },
 
   // Push Customer Information
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
-    this.dataLayer.customers = this.dataLayer.customers || [];
-    this.dataLayer.customers.unshift({
-      "customerStatus": customerStatus,
-      "gender": gender,
-      "age": age,
-      "smokeStatus": smokeStatus,
-      "province": province,
-      "profile": profile, 
-      "employment": employment
+    this.dataLayer.events = this.dataLayer.events || [];
+    this.dataLayer.events.push({
+      "event": "customer",
+      "customer": {
+        "customerStatus": customerStatus,
+        "gender": gender,
+        "age": age,
+        "smokeStatus": smokeStatus,
+        "province": province,
+        "profile": profile, 
+        "employment": employment
+      }
     });
   }
 
