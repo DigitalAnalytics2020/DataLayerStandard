@@ -55,12 +55,12 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Push Event Information
-  event: function(action, category, name, detail) {
+  event: function(action, category, label, detail) {
     this.dataLayer.events = this.dataLayer.events || [];
     this.dataLayer.events.unshift({
       "action": action, 
       "category": category,
-      "name": name,
+      "label": label,
       "detail": detail
     });
   },
