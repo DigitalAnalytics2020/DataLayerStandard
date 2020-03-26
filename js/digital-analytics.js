@@ -29,10 +29,10 @@ var CWC_MLCA = CWC_MLCA || {
     }
   },
 
-  action: function(name, action, category, label, detail) {
+  action: function(event, action, category, label, detail) {
     this.dataLayer.actions = this.dataLayer.actions || [];
     this.dataLayer.actions.push({
-      "name": name, 
+      "event": event, 
       "action": action, 
       "category": category,
       "label": label,
