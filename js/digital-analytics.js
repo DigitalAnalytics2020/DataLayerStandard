@@ -31,8 +31,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Product Information
   product: function(name, productId, category, group, coverage, value, tipInfo) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "product",
       "product": {
         "name": name,
@@ -48,8 +48,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Form Information
   form: function(name, formId, step, type) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "form",
       "form": {
         "name": name,
@@ -62,8 +62,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Event Information
   event: function(name, category, label, detail) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "event",
       "action": {
         "name": name, 
@@ -76,8 +76,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Set Transaction Information
   transaction: function(transactionId, userId, mount, category, product) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "transaction",
       "transaction": {
         "transactionId": transactionId, 
@@ -91,8 +91,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Component Information
   component: function(name, componentId, description) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "component",
       "component": {
         "name": name,
@@ -104,8 +104,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push User Information
   user: function(userId, userRole, userGroup, advisorId, status) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "user",
       "user": {
         "userId": userId,
@@ -119,8 +119,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Customer Information
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
-    this.dataLayer.events = this.dataLayer.events || [];
-    this.dataLayer.events.push({
+    this.dataLayer.actions = this.dataLayer.actions || [];
+    this.dataLayer.actions.push({
       "event": "customer",
       "customer": {
         "customerStatus": customerStatus,
