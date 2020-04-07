@@ -284,22 +284,20 @@
     }
   },
   "Components": {
-    "name": "Component(s) Array Object",
+    "name": "Component Object",
     "description": [
-      "The component(s) object is intended to capture information about content components included as part of a page. Component holds following values:<br />",
+      "The component object is intended to capture information about content components included as part of a page. Component holds following values:<br />",
       " &quot;name&quot;: component name",
       " &quot;componentID&quot;: component ID//",
       " &quot;description&quot;: component description<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.components = [];",
-      "CWC_MLCA.dataLayer.components.push(",
+      "CWC_MLCA.dataLayer.component =",
       "{",
       "&nbsp;&nbsp;&quot;name&quot;: &quot;CreditLineApprove&quot;,",
       "&nbsp;&nbsp;&quot;componentID&quot;: &quot;component012&quot;, //",
       "&nbsp;&nbsp;&quot;description&quot;: &quot;line of credit approved&quot; //description",
-      "}",
-      ");",
+      "};",
       "&lt;/script&gt;"
     ],
     "demo": {
@@ -313,9 +311,9 @@
     }
   },
   "Users": {
-    "name": "User(s) Array Object",
+    "name": "User(s) Object",
     "description": [
-      "The user(s) object carries details about all the user information of the web site and holds following values:<br />",
+      "The user object carries details about all the user information of the web site and holds following values:<br />",
       " &quot;userID&quot;: user ID",
       " &quot;userRole&quot;: user Role",
       " &quot;userGroup&quot;: user Group",
@@ -323,16 +321,14 @@
       " &quot;status&quot;: status description<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.users = [];",
-      "CWC_MLCA.dataLayer.users.push(",
+      "CWC_MLCA.dataLayer.user =",
       "{",
       "&nbsp;&nbsp;&quot;userID&quot;: &quot;user01234567&quot;,",
       "&nbsp;&nbsp;&quot;userRole&quot;: &quot;role01234567&quot;,",
       "&nbsp;&nbsp;&quot;userGroup&quot;: &quot;group01234567&quot;,",
       "&nbsp;&nbsp;&quot;advisorID&quot;: &quot;advisor01234567&quot;,",
       "&nbsp;&nbsp;&quot;status&quot;: &quot;login&quot;",
-      "}",
-      ");",
+      "};",
       "&lt;/script&gt;"
     ],
     "demo": {
@@ -348,9 +344,9 @@
     }
   },
   "Customers": {
-    "name": "Customer(s) Array Object",
+    "name": "Customer Object",
     "description": [
-      "The customer(s) object carries details about all the custom information of the web site and holds following values:<br />",
+      "The customer object carries details about all the custom information of the web site and holds following values:<br />",
       " &quot;customerStatus&quot;: where come from",
       " &quot;gender&quot;: F / M / O",
       " &quot;age&quot;: age number",
@@ -360,8 +356,7 @@
       " &quot;employment&quot;: employment status<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.customers = [];",
-      "CWC_MLCA.dataLayer.customers.push(",
+      "CWC_MLCA.dataLayer.customer =",
       "{",
       "&nbsp;&nbsp;&quot;customerStatus&quot;: &quot;prospect&quot;,",
       "&nbsp;&nbsp;&quot;gender&quot;: &quot;F&quot;,",
@@ -370,8 +365,7 @@
       "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;,",
       "&nbsp;&nbsp;&quot;profile&quot;: &quot;primary&quot;,",
       "&nbsp;&nbsp;&quot;employment&quot;: &quot;self-employed&quot;",
-      "}",
-      ");",
+      "};",
       "&lt;/script&gt;"
     ],
     "demo": {
