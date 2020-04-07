@@ -31,18 +31,15 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Product Information
   product: function(name, productId, category, group, coverage, value, tipInfo) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
-      "event": "product",
-      "product": {
-        "name": name,
-        "productId": productId, 
-        "category": category,
-        "group": group,
-        "coverage": coverage,
-        "value": value,
-        "tipInfo": tipInfo
-      }
+    this.dataLayer.products = this.dataLayer.products || [];
+    this.dataLayer.products.unshift({
+      "name": name,
+      "productId": productId, 
+      "category": category,
+      "group": group,
+      "coverage": coverage,
+      "value": value,
+      "tipInfo": tipInfo
     });
   },
 
@@ -89,49 +86,37 @@ var CWC_MLCA = CWC_MLCA || {
     });
   },
 
-  // Push Component Information
+  // Set Component Information
   component: function(name, componentId, description) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
-      "event": "component",
-      "component": {
-        "name": name,
-        "componentId": componentId, 
-        "description": description
-      }
-    });
+    this.dataLayer.component = {
+      "name": name,
+      "componentId": componentId, 
+      "description": description
+    }
   },
 
-  // Push User Information
+  // Set User Information
   user: function(userId, userRole, userGroup, advisorId, status) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
-      "event": "user",
-      "user": {
-        "userId": userId,
-        "userRole": userRole,
-        "userGroup": userGroup,
-        "advisorId": advisorId, 
-        "status": status
-      }
-    });
+    this.dataLayer.user = {
+      "userId": userId,
+      "userRole": userRole,
+      "userGroup": userGroup,
+      "advisorId": advisorId, 
+      "status": status
+    }
   },
 
-  // Push Customer Information
+  // Set Customer Information
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
-      "event": "customer",
-      "customer": {
-        "customerStatus": customerStatus,
-        "gender": gender,
-        "age": age,
-        "smokeStatus": smokeStatus,
-        "province": province,
-        "profile": profile, 
-        "employment": employment
-      }
-    });
+    this.dataLayer.customer = {
+      "customerStatus": customerStatus,
+      "gender": gender,
+      "age": age,
+      "smokeStatus": smokeStatus,
+      "province": province,
+      "profile": profile, 
+      "employment": employment
+    }
   }
 
 };
