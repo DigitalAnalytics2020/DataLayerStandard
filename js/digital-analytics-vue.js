@@ -18,12 +18,13 @@ var digital_analytics = new Vue({
     $.getJSON('json/digital_analytics.json').then((data) => {
       this.digital_analytics_2020 = data
       if (window.location.search.startsWith("?form")) {
+        var form_actions = ["form-start", "form-step", "form-submit"];
         this.setCurrentCategoryPage(1, 4);
         if (window.location.search.startsWith("?form0=")) this.digital_analytics_2020[this.current_page].demo.formindex = 1;
         if (window.location.search.startsWith("?form1=")) this.digital_analytics_2020[this.current_page].demo.formindex = 2;
         if (window.location.search.startsWith("?form2=")) this.digital_analytics_2020[this.current_page].demo.formindex = 3;
-        window.CWC_MLCA.form("demo application", "app012", "step-" + this.digital_analytics_2020[this.current_page].demo.formindex, "application");
-        window.CWC_MLCA.event("Demo Application Submit", "submit", "Demo Application Step-" + this.digital_analytics_2020[this.current_page].demo.formindex, "Demo Application Submit Step-" + this.digital_analytics_2020[this.current_page].demo.formindex);
+        window.CWC_MLCA.form(form_actions[this.digital_analytics_2020[this.current_page].demo.formindex - 1], "demo application", "app012", "step-" + this.digital_analytics_2020[this.current_page].demo.formindex, "application");
+        //window.CWC_MLCA.event("Demo Application Submit", "submit", "Demo Application Step-" + this.digital_analytics_2020[this.current_page].demo.formindex, "Demo Application Submit Step-" + this.digital_analytics_2020[this.current_page].demo.formindex);
         this.scrollPageBottom();
       }
     });
