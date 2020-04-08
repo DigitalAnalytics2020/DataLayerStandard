@@ -105,7 +105,7 @@ var digital_analytics = new Vue({
             }
             if (this.current_page == "Transaction") {
               window.CWC_MLCA.transaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
-              window.CWC_MLCA.event("transaction-pb012", "transaction", "Money Transfer", "Money Transfer Transaction Saving 2020");
+              //window.CWC_MLCA.event("transaction-pb012", "transaction", "Money Transfer", "Money Transfer Transaction Saving 2020");
             }
             if (this.current_page == "Components") window.CWC_MLCA.component("CreditLineApprove", "component012", "line of credit approved");
             if (this.current_page == "Users") window.CWC_MLCA.user("user01234567", "role01234567", "group01234567", "advisor01234567", "login");
