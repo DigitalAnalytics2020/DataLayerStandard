@@ -100,7 +100,7 @@ var digital_analytics = new Vue({
             if (this.current_page == "Products") window.CWC_MLCA.product("Travel in Canada", "ti01234567", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
             if (this.current_page == "Events") {
               //window.CWC_MLCA.action("event", "submit-ti012", "submit", "Travel Insurance", "Travel Insurance Prompt 2020");
-              window.CWC_MLCA.event("submit-ti012", "submit", "Travel Insurance", "Travel Insurance Prompt 2020");
+              window.CWC_MLCA.event("sample-event", "event", "Sample Event", "Sample Event 2020");
             }
             if (this.current_page == "Transaction") {
               window.CWC_MLCA.transaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
