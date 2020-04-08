@@ -44,10 +44,10 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Push Form Information
-  form: function(name, formId, step, type) {
+  form: function(action, name, formId, step, type) {
     this.dataLayer.actions = this.dataLayer.actions || [];
     this.dataLayer.actions.push({
-      "event": "form",
+      "event": action,
       "form": {
         "name": name,
         "formId": formId, 
@@ -106,7 +106,7 @@ var CWC_MLCA = CWC_MLCA || {
     }
   },
 
-  // Set Customer Information
+  // Push Customer Information
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
     this.dataLayer.customer = {
       "customerStatus": customerStatus,
