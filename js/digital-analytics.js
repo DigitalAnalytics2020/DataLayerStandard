@@ -1,52 +1,44 @@
 var CWC_MLCA = CWC_MLCA || {
 
-  // Initialize dataLayer
-  // set "debug" to "true" in development environment
-  // set "debug" to "false" in production environment
-  dataLayer: {
-    "debug": "true"
-  },
+  // Initialize
+  "debug": "true", // set "debug" to "false" in production environment, set "debug" to "true" in development environment
+  "version": "0.0.1", // set web application version here
 
-  // Set Site Information
-  site: function(brand, name, type, environment, version, lastBuildDate) {
-    this.dataLayer.site = {
-      "brand": brand, 
-      "name": name, 
-      "type": type, 
-      "environment": environment, 
-      "version": version, 
-      "lastBuildDate": lastBuildDate
-    }
-  },
-
-  // Set Page Information
+  // Page View Event Information
   page: function(name, title, category, language) {
-    this.dataLayer.page = {
-      "name": name, 
-      "title": title, 
-      "category": category, 
-      "language": language 
-    }
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
+      event: "page",
+      page: {
+        "name": name, 
+        "title": title, 
+        "category": category, 
+        "language": language
+      }
+    });
   },
 
   // Push Product Information
   product: function(name, productId, category, group, coverage, value, tipInfo) {
-    this.dataLayer.products = this.dataLayer.products || [];
-    this.dataLayer.products.unshift({
-      "name": name,
-      "productId": productId, 
-      "category": category,
-      "group": group,
-      "coverage": coverage,
-      "value": value,
-      "tipInfo": tipInfo
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
+      event: "product",
+      products: [{
+        "name": name,
+        "productId": productId, 
+        "category": category,
+        "group": group,
+        "coverage": coverage,
+        "value": value,
+        "tipInfo": tipInfo
+      }]
     });
   },
 
   // Push Form Information
   form: function(action, name, formId, step, type) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
       "event": action,
       "form": {
         "name": name,
@@ -59,8 +51,8 @@ var CWC_MLCA = CWC_MLCA || {
 
   // Push Event Information
   event: function(name, category, label, detail) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
       "event": "event",
       "action": {
         "name": name, 
@@ -71,10 +63,10 @@ var CWC_MLCA = CWC_MLCA || {
     });
   },
 
-  // Set Transaction Information
+  // Push Transaction Information
   transaction: function(transactionId, userId, mount, category, product) {
-    this.dataLayer.actions = this.dataLayer.actions || [];
-    this.dataLayer.actions.push({
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
       "event": "transaction",
       "transaction": {
         "transactionId": transactionId, 
@@ -86,37 +78,49 @@ var CWC_MLCA = CWC_MLCA || {
     });
   },
 
-  // Set Component Information
+  // Push Component Information
   component: function(name, componentId, description) {
-    this.dataLayer.component = {
-      "name": name,
-      "componentId": componentId, 
-      "description": description
-    }
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
+      "event": "component",
+      "component": {
+        "name": name,
+        "componentId": componentId, 
+        "description": description
+      }
+    });
   },
 
   // Set User Information
   user: function(userId, userRole, userGroup, advisorId, status) {
-    this.dataLayer.user = {
-      "userId": userId,
-      "userRole": userRole,
-      "userGroup": userGroup,
-      "advisorId": advisorId, 
-      "status": status
-    }
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
+      "event": "user",
+      "user": {
+        "userId": userId,
+        "userRole": userRole,
+        "userGroup": userGroup,
+        "advisorId": advisorId, 
+        "status": status
+      }
+    });
   },
 
   // Push Customer Information
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
-    this.dataLayer.customer = {
-      "customerStatus": customerStatus,
-      "gender": gender,
-      "age": age,
-      "smokeStatus": smokeStatus,
-      "province": province,
-      "profile": profile, 
-      "employment": employment
-    }
+    this.dataLayer = this.dataLayer || [];
+    this.dataLayer.push({
+      "event": "customer",
+      "customer": {
+        "customerStatus": customerStatus,
+        "gender": gender,
+        "age": age,
+        "smokeStatus": smokeStatus,
+        "province": province,
+        "profile": profile, 
+        "employment": employment
+      }
+    });
   }
 
 };
