@@ -453,5 +453,17 @@
       ],
       "sampleflag": true
     }
+  },
+  "GB": {
+    "name": "GB",
+    "description": [
+      "Under-construction"
+    ]
+  },
+  "CP": {
+    "name": "GB",
+    "description": [
+      "Under-construction"
+    ]
   }
 }
