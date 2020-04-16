@@ -3,11 +3,12 @@ var digital_analytics = new Vue({
   el: '#digital_analytics',
   data: {
     digital_analytics_2020: {},
-    page_categories: ["System Object", "JSO (JavaScript Object)", "HTML5 data-analytics-* Attributes"],
+    page_categories: ["System Object", "JSO (JavaScript Object)", "HTML5 data-analytics-* Attributes", "Sample Scenario"],
     pages: [
       [ "URL", "Timestamp", "Other" ],
       [ "Root", "Site", "Page", "Products", "Forms", "Events", "Transaction", "Components", "Users", "Customers" ],
-      [ "Redirect", "Exit", "Download", "Click", "Content" ]
+      [ "Redirect", "Exit", "Download", "Click", "Content" ],
+      [ "GB", "CP" ]
     ],
     show_menu_bar: true,
     current_category_index: -1,
@@ -143,6 +144,16 @@ var digital_analytics = new Vue({
     classCaretRightHA: function () {
       return {
         'fa-caret-right': this.current_category_index != 2
+      }
+    },
+    classCaretDownSS: function () {
+      return {
+        'fa-caret-down': this.current_category_index == 3
+      }
+    },
+    classCaretRightSS: function () {
+      return {
+        'fa-caret-right': this.current_category_index != 3
       }
     }
   }
