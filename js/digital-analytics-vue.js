@@ -27,7 +27,6 @@ var digital_analytics = new Vue({
         this.scrollPageBottom();
       }
     });
-    window.CWC_MLCA.site("Test Co.", "test", "desktop", "development", "0.0.1", "2020-02-02");
   },
   methods: {
     setCurrentCategoryPage: function (categoryIndex, pageIndex) {
