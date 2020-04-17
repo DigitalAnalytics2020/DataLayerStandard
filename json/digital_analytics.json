@@ -92,7 +92,7 @@
       "Sample code:<br />",
       "&lt;script&gt;",
       "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
-      "CWC_MLCA.dataLayer.push(",
+      "CWC_MLCA.dataLayer.push({",
       "&nbsp;&nbsp;event: &quot;product&quot;,",
       "&nbsp;&nbsp;products:",
       "&nbsp;&nbsp;[{",
@@ -112,7 +112,7 @@
       "&nbsp;&nbsp;&quot;value&quot;: &quot;$50&quot;, //",
       "&nbsp;&nbsp;&quot;tipInfo&quot;: &quot;single coverage: 2 weeks&quot; //description",
       "&nbsp;&nbsp;}]",
-      ");",
+      "});",
       "&lt;/script&gt;"
     ],
     "demo": {
