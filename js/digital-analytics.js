@@ -19,19 +19,11 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Push Product Information
-  product: function(name, productId, category, group, coverage, value, tipInfo) {
+  product: function(products) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
       event: "product",
-      products: [{
-        "name": name,
-        "productId": productId, 
-        "category": category,
-        "group": group,
-        "coverage": coverage,
-        "value": value,
-        "tipInfo": tipInfo
-      }]
+      products: products
     });
   },
 
@@ -107,19 +99,11 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Push Customer Information
-  customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
+  customer: function(customer) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
       "event": "customer",
-      "customer": {
-        "customerStatus": customerStatus,
-        "gender": gender,
-        "age": age,
-        "smokeStatus": smokeStatus,
-        "province": province,
-        "profile": profile, 
-        "employment": employment
-      }
+      "customer": customer
     });
   }
 
