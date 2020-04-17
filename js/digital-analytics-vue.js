@@ -6,7 +6,7 @@ var digital_analytics = new Vue({
     page_categories: ["System Object", "JSO (JavaScript Object)", "HTML5 data-analytics-* Attributes", "Sample Scenario"],
     pages: [
       [ "URL", "Timestamp", "Other" ],
-      [ "Root", "Site", "Page", "Products", "Forms", "Events", "Transaction", "Components", "Users", "Customers" ],
+      [ "Root", "Static Variable", "Page", "Product", "Form", "Event", "Transaction", "Component", "User", "Customer" ],
       [ "Redirect", "Exit", "Download", "Click", "Content" ],
       [ "GB", "CP" ]
     ],
@@ -97,12 +97,12 @@ var digital_analytics = new Vue({
         if (this.digital_analytics_2020[this.current_page].demo.sample !== undefined && this.digital_analytics_2020[this.current_page].demo.sampleflag !== undefined) {
           this.digital_analytics_2020[this.current_page].demo.sampleflag = !this.digital_analytics_2020[this.current_page].demo.sampleflag;
           if (this.digital_analytics_2020[this.current_page].demo.sampleflag) {
-            if (this.current_page == "Products") window.CWC_MLCA.product("Travel in Canada", "ti-01234567-" + (window.CWC_MLCA.dataLayer.products == undefined ? 0 : window.CWC_MLCA.dataLayer.products.length), "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
-            if (this.current_page == "Events") window.CWC_MLCA.event("sample-event", "event", "Sample Event", "Sample Event 2020");
+            if (this.current_page == "Product") window.CWC_MLCA.product("Travel in Canada", "ti012", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
+            if (this.current_page == "Event") window.CWC_MLCA.event("sample-event", "event", "Sample Event", "Sample Event 2020");
             if (this.current_page == "Transaction") window.CWC_MLCA.transaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
-            if (this.current_page == "Components") window.CWC_MLCA.component("CreditLineApprove", "component012", "line of credit approved");
-            if (this.current_page == "Users") window.CWC_MLCA.user("user01234567", "role01234567", "group01234567", "advisor01234567", "login");
-            if (this.current_page == "Customers") window.CWC_MLCA.customer("prospect", "F", "40", "non-smoke", "ON", "primary", "self-employed");
+            if (this.current_page == "Component") window.CWC_MLCA.component("CreditLineApprove", "component012", "line of credit approved");
+            if (this.current_page == "User") window.CWC_MLCA.user("user01234567", "role01234567", "group01234567", "advisor01234567", "login");
+            if (this.current_page == "Customer") window.CWC_MLCA.customer("prospect", "F", "40", "non-smoke", "ON", "primary", "self-employed");
           }
         }
       }
