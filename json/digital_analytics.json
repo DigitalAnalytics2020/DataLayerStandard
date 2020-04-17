@@ -35,42 +35,26 @@
       "To add the data layer JSO to your site, insert the following code in the &lt;head&gt; of every page of your website.<br /><br />",
       "&lt;script&gt;",
       "&nbsp;&nbsp;var CWC_MLCA = CWC_MLCA || {};",
-      "&nbsp;&nbsp;CWC_MLCA.dataLayer = {};",
-      "&nbsp;&nbsp;CWC_MLCA.dataLayer.debug = &quot;true&quot;; // turn on debug information",
       "&lt;/script&gt;"
     ]
   },
-  "Site": {
+  "Static Variable": {
     "name": "Site Object",
     "description": [
-      "The site object carries details about the web site and holds following values:<br />",
-      " &quot;brand&quot;: company name // not necessary ?",
-      " &quot;name&quot;: web site name",
-      " &quot;type&quot;: web site type for desktop or mobile // not necessary ?",
-      " &quot;environment&quot;: production / staging / development // not necessary ?",
+      "Static variables are set in the CWC_MLCA object and won't change during the navigation inside web application:<br />",
       " &quot;version&quot;: version number",
-      " &quot;lastBuildDate&quot;: build date",
-      " &quot;province&quot;: like &quot;ON&quot; // remove",
-      " &quot;country&quot;: like &quot;CA&quot; // field name also use &ldquo;geoRegion&rdquo;, remove<br /><br />",
+      " &quot;debug&quot;: true or false, for turn on or turn off debug information<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "var site =",
-      "{",
-      "&nbsp;&nbsp;&quot;brand&quot;: &quot;Manulife&quot;,",
-      "&nbsp;&nbsp;&quot;name&quot;: &quot;Cover Me&quot;,",
-      "&nbsp;&nbsp;&quot;type&quot;: &quot;desktop&quot;,",
-      "&nbsp;&nbsp;&quot;environment&quot;: &quot;production&quot;,",
+      "&nbsp;&nbsp;var CWC_MLCA = CWC_MLCA || {",
       "&nbsp;&nbsp;&quot;version&quot;: &quot;1.0.1&quot;,",
-      "&nbsp;&nbsp;&quot;lastBuildDate&quot;: &quot;23/12/2019&quot;, // need standardize format",
-      "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;, //",
-      "&nbsp;&nbsp;&quot;country&quot;: &quot;CA&quot; // geoRegion",
+      "&nbsp;&nbsp;&quot;debug&quot;: &quot;true&quot; // set true for dev environment, false for prod environment",
       "};",
-      "CWC_MLCA.dataLayer.site = site;",
       "&lt;/script&gt;"
     ]
   },
   "Page": {
-    "name": "Page Object",
+    "name": "Page Data",
     "description": [
       "The page object carries details about each page of web site and holds following values:<br />",
       " &quot;name&quot;: page name",
@@ -86,14 +70,18 @@
       "&nbsp;&nbsp;&quot;category&quot;: &quot;&quot;,",
       "&nbsp;&nbsp;&quot;language&quot;: &quot;EN&quot;",
       "};",
-      "CWC_MLCA.dataLayer.page = page;",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push({",
+      "&nbsp;&nbsp;event: &quot;page&quot;,",
+      "&nbsp;&nbsp;page: page",
+      "});",
       "&lt;/script&gt;"
     ]
   },
-  "Products": {
-    "name": "Product(s) Array Object",
+  "Product": {
+    "name": "Product Data",
     "description": [
-      "The product(s) object carries details about each product of web site and holds following values:<br />",
+      "The product data is an array object carries details about one or multiple products of web site and holds following values:<br />",
       " &quot;name&quot;: product name",
       " &quot;productID&quot;: product ID",
       " &quot;category&quot;: product category",
@@ -103,17 +91,27 @@
       " &quot;tipInfo&quot;: description<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.products = this.dataLayer.products || [];",
-      "CWC_MLCA.dataLayer.products.unshift(",
-      "{",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
+      "&nbsp;&nbsp;event: &quot;product&quot;,",
+      "&nbsp;&nbsp;products:",
+      "&nbsp;&nbsp;[{",
       "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel in Canada&quot;,",
-      "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti01234567&quot;,",
+      "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti012&quot;,",
       "&nbsp;&nbsp;&quot;category&quot;: &quot;travel insurance&quot;, //",
       "&nbsp;&nbsp;&quot;group&quot;: &quot;insurance&quot;, //",
       "&nbsp;&nbsp;&quot;coverage&quot;: &quot;45 days&quot;, //",
       "&nbsp;&nbsp;&quot;value&quot;: &quot;$100&quot;, //",
       "&nbsp;&nbsp;&quot;tipInfo&quot;: &quot;single coverage: 45 days&quot; //description",
-      "}",
+      "&nbsp;&nbsp;}, {",
+      "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel in Canada&quot;,",
+      "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti345&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;travel insurance&quot;, //",
+      "&nbsp;&nbsp;&quot;group&quot;: &quot;insurance&quot;, //",
+      "&nbsp;&nbsp;&quot;coverage&quot;: &quot;2 weeks&quot;, //",
+      "&nbsp;&nbsp;&quot;value&quot;: &quot;$50&quot;, //",
+      "&nbsp;&nbsp;&quot;tipInfo&quot;: &quot;single coverage: 2 weeks&quot; //description",
+      "&nbsp;&nbsp;}]",
       ");",
       "&lt;/script&gt;"
     ],
@@ -121,7 +119,7 @@
       "description": "Click link to add the product",
       "sample": [
         "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel in Canada&quot;,",
-        "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti01234567&quot;,",
+        "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti012&quot;,",
         "&nbsp;&nbsp;&quot;category&quot;: &quot;travel insurance&quot;,",
         "&nbsp;&nbsp;&quot;group&quot;: &quot;insurance&quot;,",
         "&nbsp;&nbsp;&quot;coverage&quot;: &quot;45 days&quot;,",
@@ -131,33 +129,26 @@
       "sampleflag": false
     }
   },
-  "Forms": {
-    "name": "Application/Forms/Quote/Tool Array Object",
+  "Form": {
+    "name": "Application/Forms/Quote/Tool Data",
     "description": [
-      "The application/forms/quote/tool are object carries details about multiple steps of process and holds following values:<br />",
+      "The application/forms/quote/tool data are object carries details about multiple steps of process and holds following values:<br />",
+      " &quot;event&quot;: <i><b>there are following types: app-start/app-step/app-complete, form-start/form-step/form-submit, quote-start/quote-step/quote-complete. And types are expandable.</b></i>",
       " &quot;name&quot;: application/forms/quote/tool name",
       " &quot;appID&quot;: app ID",
-      " &quot;step&quot;: 1, 2, 3 … (step number) // separate into 3 groups: start, in-between, complete",
-      " &quot;type&quot;: application / quote / tool",
-      " &quot;event&quot;: event of each steps needs to push into event object<br /><br />",
+      " &quot;step&quot;: step name, (3 groups: start, in-between steps, complete/submit)",
+      " &quot;type&quot;: application / quote / tool<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.apps = [];",
-      "CWC_MLCA.dataLayer.apps.push(",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
+      "&nbsp;&nbsp;event: &quot;form-start&quot;,",
+      "&nbsp;&nbsp;form:",
       "{",
       "&nbsp;&nbsp;&quot;name&quot;: &quot;LifeInsuranceCaculate&quot;,",
       "&nbsp;&nbsp;&quot;appID&quot;: &quot;LI01234567&quot;,",
       "&nbsp;&nbsp;&quot;step&quot;: &quot;quote start&quot;, //",
       "&nbsp;&nbsp;&quot;type&quot;: &quot;quote&quot; //",
-      "}",
-      ");",
-      "CWC_MLCA.dataLayer.events.push(&quot;quote:start&quot;); // ?",
-      "CWC_MLCA.dataLayer.events.push(",
-      "{",
-      "&nbsp;&nbsp;&quot;action&quot;: &quot;submit-ti012&quot;,",
-      "&nbsp;&nbsp;&quot;category&quot;: &quot;submit&quot;,",
-      "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel Insurance Quote&quot;, //",
-      "&nbsp;&nbsp;&quot;detail&quot;: &quot;Travel Insurance Prompt 2020&quot; //",
       "}",
       ");",
       "&lt;/script&gt;"
@@ -168,18 +159,19 @@
       "formindex": 0
     }
   },
-  "Events": {
-    "name": "Event(s) Array Object",
+  "Event": {
+    "name": "Event Data",
     "description": [
-      "The event(s) object carries details about event (include event history) and holds following values:<br />",
+      "The event data carries details about event and holds following values:<br />",
+      " &quot;event&quot;: <i><b>types of action: download, click, form-start etc.</b></i>",
       " &quot;action&quot;: unique event ID different with previous event",
       " &quot;category&quot;: transaction / click / exit / download / redirect / submit / content",
       " &quot;label&quot;: event name",
       " &quot;detail&quot;: like campaign ID related to the event<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.actions = CWC_MLCA.dataLayer.actions || [];",
-      "CWC_MLCA.dataLayer.actions.push(",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
       "&quot;event&quot;: &quot;download&quot;,",
       "&quot;action&quot;: {",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;download-pdf-policy012&quot;,",
@@ -190,8 +182,8 @@
       ");",
       "&lt;/script&gt;<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.actions = CWC_MLCA.dataLayer.actions || [];",
-      "CWC_MLCA.dataLayer.actions.push(",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
       "&quot;event&quot;: &quot;quote-complete&quot;,",
       "&quot;action&quot;: {",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;transaction-pb012&quot;,",
@@ -202,8 +194,8 @@
       ");",
       "&lt;/script&gt;<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.actions = CWC_MLCA.dataLayer.actions || [];",
-      "CWC_MLCA.dataLayer.actions.push(",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
       "&quot;event&quot;: &quot;app-step&quot;,",
       "&quot;action&quot;: {",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;application-show012&quot;,",
@@ -214,8 +206,8 @@
       ");",
       "&lt;/script&gt;<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.actions = CWC_MLCA.dataLayer.actions || [];",
-      "CWC_MLCA.dataLayer.actions.push(",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
       "&quot;event&quot;: &quot;event&quot;,",
       "&quot;action&quot;: {",
       "&nbsp;&nbsp;&quot;action&quot;: &quot;sample-event&quot;,",
@@ -241,9 +233,9 @@
     }
   },
   "Transaction": {
-    "name": "Transaction Object",
+    "name": "Transaction Data",
     "description": [
-      "The transaction object carries details about latest transaction and holds following values:<br />",
+      "The transaction data carries details about latest transaction and holds following values:<br />",
       " &quot;transactionID&quot;: transaction ID",
       " &quot;userID&quot;: link to user",
       " &quot;mount&quot;: transaction mount",
@@ -252,8 +244,8 @@
       " &quot;event&quot;: event of transaction needs to push into event object<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.actions = CWC_MLCA.dataLayer.actions || [];",
-      "CWC_MLCA.dataLayer.actions.push(",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
       "&quot;event&quot;: &quot;transaction&quot;,",
       "&quot;transaction&quot;: {",
       "&nbsp;&nbsp;&quot;transactionID&quot;: &quot;t012&quot;,",
@@ -278,21 +270,24 @@
       "sampleflag": false
     }
   },
-  "Components": {
-    "name": "Component Object",
+  "Component": {
+    "name": "Component Data",
     "description": [
-      "The component object is intended to capture information about content components included as part of a page. Component holds following values:<br />",
+      "The component data is intended to capture information about content components included as part of a page. Component holds following values:<br />",
       " &quot;name&quot;: component name",
       " &quot;componentID&quot;: component ID//",
       " &quot;description&quot;: component description<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.component =",
-      "{",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
+      "&quot;event&quot;: &quot;component&quot;,",
+      "&quot;component&quot;: {",
       "&nbsp;&nbsp;&quot;name&quot;: &quot;CreditLineApprove&quot;,",
       "&nbsp;&nbsp;&quot;componentID&quot;: &quot;component012&quot;, //",
       "&nbsp;&nbsp;&quot;description&quot;: &quot;line of credit approved&quot; //description",
-      "};",
+      "}",
+      ");",
       "&lt;/script&gt;"
     ],
     "demo": {
@@ -305,10 +300,10 @@
       "sampleflag": false
     }
   },
-  "Users": {
-    "name": "User(s) Object",
+  "User": {
+    "name": "User Data",
     "description": [
-      "The user object carries details about all the user information of the web site and holds following values:<br />",
+      "The user data carries details about all the user information of the web site and holds following values:<br />",
       " &quot;userID&quot;: user ID",
       " &quot;userRole&quot;: user Role",
       " &quot;userGroup&quot;: user Group",
@@ -316,14 +311,17 @@
       " &quot;status&quot;: status description<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.user =",
-      "{",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
+      "&quot;event&quot;: &quot;user&quot;,",
+      "&quot;user&quot;: {",
       "&nbsp;&nbsp;&quot;userID&quot;: &quot;user01234567&quot;,",
       "&nbsp;&nbsp;&quot;userRole&quot;: &quot;role01234567&quot;,",
       "&nbsp;&nbsp;&quot;userGroup&quot;: &quot;group01234567&quot;,",
       "&nbsp;&nbsp;&quot;advisorID&quot;: &quot;advisor01234567&quot;,",
       "&nbsp;&nbsp;&quot;status&quot;: &quot;login&quot;",
-      "};",
+      "}",
+      ");",
       "&lt;/script&gt;"
     ],
     "demo": {
@@ -338,10 +336,10 @@
       "sampleflag": false
     }
   },
-  "Customers": {
-    "name": "Customer Object",
+  "Customer": {
+    "name": "Customer Data",
     "description": [
-      "The customer object carries details about all the custom information of the web site and holds following values:<br />",
+      "The customer data carries details about all the custom information of the web site and holds following values:<br />",
       " &quot;customerStatus&quot;: where come from",
       " &quot;gender&quot;: F / M / O",
       " &quot;age&quot;: age number",
@@ -351,8 +349,10 @@
       " &quot;employment&quot;: employment status<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
-      "CWC_MLCA.dataLayer.customer =",
-      "{",
+      "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
+      "CWC_MLCA.dataLayer.push(",
+      "&quot;event&quot;: &quot;customer&quot;,",
+      "&quot;customer&quot;: {",
       "&nbsp;&nbsp;&quot;customerStatus&quot;: &quot;prospect&quot;,",
       "&nbsp;&nbsp;&quot;gender&quot;: &quot;F&quot;,",
       "&nbsp;&nbsp;&quot;age&quot;: &quot;40&quot;,",
@@ -360,7 +360,8 @@
       "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;,",
       "&nbsp;&nbsp;&quot;profile&quot;: &quot;primary&quot;,",
       "&nbsp;&nbsp;&quot;employment&quot;: &quot;self-employed&quot;",
-      "};",
+      "}",
+      ");",
       "&lt;/script&gt;"
     ],
     "demo": {
