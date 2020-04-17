@@ -1,3 +1,4 @@
+// Customized products data for GB project
 function gbProduct(name, productId, category, group, coverage, value, tipInfo) {
   window.CWC_MLCA.product(
     [{
@@ -12,6 +13,7 @@ function gbProduct(name, productId, category, group, coverage, value, tipInfo) {
   );
 }
 
+// Customized customer data for GB project
 function gbCustomer(customerStatus, gender, age, smokeStatus, province, profile, employment) {
   window.CWC_MLCA.customer(
     {
