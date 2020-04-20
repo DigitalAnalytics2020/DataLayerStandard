@@ -99,7 +99,7 @@ var digital_analytics = new Vue({
           if (this.digital_analytics_2020[this.current_page].demo.sampleflag) {
             if (this.current_page == "Product") window.gbProduct("Travel in Canada", "ti012", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
             if (this.current_page == "Event") window.CWC_MLCA.event("sample-event", "event", "Sample Event", "Sample Event 2020");
-            if (this.current_page == "Transaction") window.CWC_MLCA.transaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
+            if (this.current_page == "Transaction") window.gbTransaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
             if (this.current_page == "Component") window.CWC_MLCA.component("CreditLineApprove", "component012", "line of credit approved");
             if (this.current_page == "User") window.CWC_MLCA.user("user01234567", "role01234567", "group01234567", "advisor01234567", "login");
             if (this.current_page == "Customer") window.gbCustomer("prospect", "F", "40", "non-smoke", "ON", "primary", "self-employed");
