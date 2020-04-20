@@ -56,10 +56,12 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Push Transaction Information
-  transaction: function(transactionId, userId, mount, category, product) {
+  transaction: function(transaction) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
       "event": "transaction",
+      "transaction": transaction
+      /*
       "transaction": {
         "transactionId": transactionId, 
         "userId": userId, 
@@ -67,6 +69,7 @@ var CWC_MLCA = CWC_MLCA || {
         "category": category, 
         "product": product 
       }
+      */
     });
   },
 
