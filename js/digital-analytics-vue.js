@@ -8,13 +8,15 @@ var digital_analytics = new Vue({
       [ "URL", "Timestamp", "Other" ],
       [ "Root", "Static Variable", "Page", "Product", "Form", "Event", "Transaction", "Component", "User", "Customer" ],
       [ "Redirect", "Exit", "Download", "Click", "Content" ],
-      [ "GB", "CP" ]
+      []
     ],
     show_menu_bar: true,
     current_category_index: -1,
     current_page: null
   },
   mounted: function() {
+    //var sampleScenarios = [];
+    window.CWC_MLCA_SampleScenario.forEach(item => { this.pages[3].push(item.sample); });
     this.setCurrentCategoryPage(-1, -1);
     $.getJSON('json/digital_analytics.json').then((data) => {
       this.digital_analytics_2020 = data
@@ -42,13 +44,13 @@ var digital_analytics = new Vue({
         daPageTitle += " : Home Page";
         daPageCategory = "Home";
       } else {
-        daPageName += (categoryIndex == 0 ? "system-object" : (categoryIndex == 1 ? "data-layer" : "html5-attribute"));
+        daPageName += (categoryIndex == 0 ? "system-object" : (categoryIndex == 1 ? "data-layer" : (categoryIndex == 2 ? "html5-attribute" : "sample-scenario")));
         daPageTitle += " : " + this.page_categories[categoryIndex];
         daPageCategory = this.page_categories[categoryIndex];
         if (pageIndex < 0) this.current_page = "View detail of " + this.page_categories[categoryIndex];
         else {
           this.current_page = this.pages[categoryIndex][pageIndex];
-          daPageName += ":" + this.current_page.toLowerCase();
+          daPageName += ":" + this.current_page.toLowerCase().split(" ").join("-");
           daPageTitle += " - " + this.current_page;
         }
       }
@@ -70,6 +72,8 @@ var digital_analytics = new Vue({
         this.digital_analytics_2020[this.current_page].description.forEach( function(line) {
           description_body += line + "<br />";
         });
+      } else if (this.pages[3].includes(this.current_page)) {
+        window.CWC_MLCA_SampleScenario.forEach(item => { if (item.sample == this.current_page) description_body = item.page; });
       }
       return description_body;
     },      
