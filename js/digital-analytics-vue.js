@@ -56,6 +56,13 @@ var digital_analytics = new Vue({
       }
       if (categoryIndex >= 3 && pageIndex >= 0) { // handle sample scenario
         if (pageIndex == 0) window.CWC_MLCA_SampleScenario.pageView();
+        if (pageIndex == 1) window.CWC_MLCA_SampleScenario.pageUserView();
+        if (pageIndex == 2) window.CWC_MLCA_SampleScenario.pdfDownload();
+        //if (pageIndex == 3) window.CWC_MLCA_SampleScenario.pageView();
+        if (pageIndex == 4) window.CWC_MLCA_SampleScenario.singleTransactionProduct();
+        if (pageIndex == 5) window.CWC_MLCA_SampleScenario.multipleTransactionProduct();
+        if (pageIndex == 6) window.CWC_MLCA_SampleScenario.siteSearch();
+        if (pageIndex == 7) window.CWC_MLCA_SampleScenario.formSubmission();
       } 
       else window.CWC_MLCA.page(daPageName, daPageTitle, daPageCategory, daPageLanguage); // push page view data in rest pages
     },
