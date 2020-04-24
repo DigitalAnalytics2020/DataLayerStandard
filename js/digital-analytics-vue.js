@@ -16,7 +16,7 @@ var digital_analytics = new Vue({
   },
   mounted: function() {
     //var sampleScenarios = [];
-    window.CWC_MLCA_SampleScenario.forEach(item => { this.pages[3].push(item.sample); });
+    window.CWC_MLCA_SampleScenario.pages.forEach(item => { this.pages[3].push(item.sample); });
     this.setCurrentCategoryPage(-1, -1);
     $.getJSON('json/digital_analytics.json').then((data) => {
       this.digital_analytics_2020 = data
@@ -54,7 +54,10 @@ var digital_analytics = new Vue({
           daPageTitle += " - " + this.current_page;
         }
       }
-      window.CWC_MLCA.page(daPageName, daPageTitle, daPageCategory, daPageLanguage);
+      if (categoryIndex >= 3 && pageIndex >= 0) { // handle sample scenario
+        if (pageIndex == 0) window.CWC_MLCA_SampleScenario.pageView();
+      } 
+      else window.CWC_MLCA.page(daPageName, daPageTitle, daPageCategory, daPageLanguage); // push page view data in rest pages
     },
     showMenuBar: function (showFlag) {
       if (showFlag) {
@@ -73,7 +76,7 @@ var digital_analytics = new Vue({
           description_body += line + "<br />";
         });
       } else if (this.pages[3].includes(this.current_page)) {
-        window.CWC_MLCA_SampleScenario.forEach(item => { if (item.sample == this.current_page) description_body = item.page; });
+        window.CWC_MLCA_SampleScenario.pages.forEach(item => { if (item.sample == this.current_page) description_body = item.page; });
       }
       return description_body;
     },      
@@ -101,12 +104,12 @@ var digital_analytics = new Vue({
         if (this.digital_analytics_2020[this.current_page].demo.sample !== undefined && this.digital_analytics_2020[this.current_page].demo.sampleflag !== undefined) {
           this.digital_analytics_2020[this.current_page].demo.sampleflag = !this.digital_analytics_2020[this.current_page].demo.sampleflag;
           if (this.digital_analytics_2020[this.current_page].demo.sampleflag) {
-            if (this.current_page == "Product") window.gbProduct("Travel in Canada", "ti012", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
+            if (this.current_page == "Product") window.CWC_MLCA_GB.product("Travel in Canada", "ti012", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
             if (this.current_page == "Event") window.CWC_MLCA.event("sample-event", "event", "Sample Event", "Sample Event 2020");
-            if (this.current_page == "Transaction") window.gbTransaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
+            if (this.current_page == "Transaction") window.CWC_MLCA_GB.transaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
             if (this.current_page == "Component") window.CWC_MLCA.component("CreditLineApprove", "component012", "line of credit approved");
             if (this.current_page == "User") window.CWC_MLCA.user("user01234567", "role01234567", "group01234567", "advisor01234567", "login");
-            if (this.current_page == "Customer") window.gbCustomer("prospect", "F", "40", "non-smoke", "ON", "primary", "self-employed");
+            if (this.current_page == "Customer") window.CWC_MLCA_GB.customer("prospect", "F", "40", "non-smoke", "ON", "primary", "self-employed");
           }
         }
       }
