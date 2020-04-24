@@ -1,5 +1,6 @@
-var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || [
+var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || {
 
+  pages: [
   {
     "sample": "Page view",
     "page":
@@ -99,5 +100,14 @@ var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || [
 </ul>
     `
   }
+  ],
 
-]
+  // push sample page view data
+  pageView: function() {
+    window.CWC_MLCA.page("digital-analytics:standard2020:sample-scenario:page-view", // page name
+                         "Digital Analytics Standard2020 : Sample Scenario : Page View", // page title
+                         "Sample Scenario", // page category 
+                         "EN"); // page language
+  }
+
+}
