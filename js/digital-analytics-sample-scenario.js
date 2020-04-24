@@ -5,7 +5,7 @@ var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || {
     "sample": "Page view",
     "page":
     `
-<hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
+<hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
 <h5 class="w3-text-blue-grey">This page use following code and data:</h5>
 <ul class="w3-ul w3-dark-grey">
 <li>var name = "digital-analytics:standard2020:sample-scenario:page-view";</li>
@@ -57,7 +57,7 @@ var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || {
     "sample": "Single transaction or product",
     "page":
     `
-<hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
+<hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
 <h5 class="w3-text-blue-grey">Customized transaction data layer implementation:</h5>
 <ul class="w3-ul w3-dark-grey">
 <li>
@@ -102,7 +102,7 @@ var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
     "sample": "Multiple transactions or products",
     "page":
     `
-<hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
+<hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
 <h5 class="w3-text-blue-grey">Customized products data layer implementation:</h5>
 <ul class="w3-ul w3-dark-grey">
 <li>
