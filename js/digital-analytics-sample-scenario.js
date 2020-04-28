@@ -8,11 +8,20 @@ var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || {
 <hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
 <h5 class="w3-text-blue-grey">This page use following code and data:</h5>
 <ul class="w3-ul w3-dark-grey">
-<li>var name = "digital-analytics:standard2020:sample-scenario:page-view";</li>
-<li>var title = "Digital Analytics Standard2020 : Sample Scenario : Page View";</li>
-<li>var category = "Sample Scenario";</li>
-<li>var language = "EN";</li>
-<li>window.CWC_MLCA.page(name, title, category, language);</li>
+<li>
+<p>
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp; event: "pageLoad",<br />
+&nbsp; page: {<br />
+&nbsp;   "name": "digital-analytics:standard2020:sample-scenario:page-view",<br />
+&nbsp;   "title": "Digital Analytics Standard2020 : Sample Scenario : Page View",<br />
+&nbsp;   "category": "Sample Scenario",<br />
+&nbsp;   "language": "EN"<br />
+&nbsp; }<br />
+});
+</p>
+</li>
 </ul>
     `
   },
