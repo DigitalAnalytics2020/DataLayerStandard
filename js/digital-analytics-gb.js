@@ -1,8 +1,8 @@
 var CWC_MLCA = CWC_MLCA || {
 
   // Initialize
-  "debug": "true", // set "debug" to "false" in production environment, set "debug" to "true" in development environment
-  "version": "0.0.1", // set web application version here
+  debug: "true", // set "debug" to "false" in production environment, set "debug" to "true" in development environment
+  version: "0.0.1", // set web application version here
 
   // Page View Event Information
   page: function(name, title, category, language) {
@@ -10,10 +10,10 @@ var CWC_MLCA = CWC_MLCA || {
     this.dataLayer.push({
       event: "pageLoad",
       page: {
-        "name": name, 
-        "title": title, 
-        "category": category, 
-        "language": language
+        name: name, 
+        title: title, 
+        category: category, 
+        language: language
       }
     });
   },
@@ -31,12 +31,12 @@ var CWC_MLCA = CWC_MLCA || {
   form: function(action, name, formId, step, type) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      "event": action,
-      "form": {
-        "name": name,
-        "formId": formId, 
-        "step": step,
-        "type": type
+      event: action,
+      form: {
+        name: name,
+        formId: formId, 
+        step: step,
+        type: type
       }
     });
   },
@@ -45,12 +45,12 @@ var CWC_MLCA = CWC_MLCA || {
   event: function(name, category, label, detail) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      "event": "event",
-      "action": {
-        "name": name, 
-        "category": category,
-        "label": label,
-        "detail": detail
+      event: "event",
+      action: {
+        name: name, 
+        category: category,
+        label: label,
+        detail: detail
       }
     });
   },
@@ -59,10 +59,10 @@ var CWC_MLCA = CWC_MLCA || {
   transaction: function(transaction, user, products) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      "event": "transaction",
-      "transaction": transaction,
-      "user": user,
-      "products": products
+      event: "transaction",
+      transaction: transaction,
+      user: user,
+      products: products
     });
   },
 
@@ -70,11 +70,11 @@ var CWC_MLCA = CWC_MLCA || {
   component: function(name, componentId, description) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      "event": "component",
-      "component": {
-        "name": name,
-        "componentId": componentId, 
-        "description": description
+      event: "component",
+      component: {
+        name: name,
+        componentId: componentId, 
+        description: description
       }
     });
   },
@@ -83,13 +83,13 @@ var CWC_MLCA = CWC_MLCA || {
   user: function(userId, userRole, userGroup, advisorId, status) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      "event": "user",
-      "user": {
-        "userId": userId,
-        "userRole": userRole,
-        "userGroup": userGroup,
-        "advisorId": advisorId, 
-        "status": status
+      event: "user",
+      user: {
+        userId: userId,
+        userRole: userRole,
+        userGroup: userGroup,
+        advisorId: advisorId, 
+        status: status
       }
     });
   },
@@ -98,16 +98,16 @@ var CWC_MLCA = CWC_MLCA || {
   customer: function(customerStatus, gender, age, smokeStatus, province, profile, employment) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      "event": "customer",
-      "customer": 
+      event: "customer",
+      customer: 
       {
-        "customerStatus": customerStatus,
-        "gender": gender,
-        "age": age,
-        "smokeStatus": smokeStatus,
-        "province": province,
-        "profile": profile, 
-        "employment": employment
+        customerStatus: customerStatus,
+        gender: gender,
+        age: age,
+        smokeStatus: smokeStatus,
+        province: province,
+        profile: profile, 
+        employment: employment
       }
     });
   }
