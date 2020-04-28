@@ -202,7 +202,11 @@ var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
                          "Digital Analytics Standard2020 : Sample Scenario : Single Transaction Product", // page title
                          "Sample Scenario", // page category 
                          "EN"); // page language
-    window.CWC_MLCA_GB.transaction("transaction012", "user012", "$120", "Transfer",  "bank saving");
+    window.CWC_MLCA.transaction(
+        {"transactionId": "t012", "amount": "$120", "category": "transfer"}, // Transaction information
+        {"userId": "user01234567", "userRole": "role01234567", "userGroup": "group01234567", "advisorID": "advisor01234567", "status": "login"}, // user information
+        [{"name": "High-interest Saving Account", "productId": "bs012", "category": "Bank Saving", "group": "bank", "coverage": "CDIC", "value": "$2000", "tipInfo": "New Client Earn 2.80%* Interest for the First 5 Months!"}] // products information
+    );
   },
     
   // push sample data: multiple transaction product
@@ -211,7 +215,25 @@ var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
                          "Digital Analytics Standard2020 : Sample Scenario : Multiple Transaction Product", // page title
                          "Sample Scenario", // page category 
                          "EN"); // page language
-    window.CWC_MLCA_GB.product("Travel in Canada", "ti012", "travel insurance", "insurance", "45 days", "$100", "single coverage: 45 days");
+    window.CWC_MLCA.product(
+      [{
+        "name": "Travel in Canada",
+        "productId": "ti01234", 
+        "category": "travel insurance",
+        "group": "insurance",
+        "coverage": "45 days",
+        "value": "$200",
+        "tipInfo": "family coverage: 45 days"
+      },{
+        "name": "Travel in Canada",
+        "productId": "ti56789", 
+        "category": "travel insurance",
+        "group": "insurance",
+        "coverage": "10 days",
+        "value": "$100",
+        "tipInfo": "single coverage: 10 days"
+      }]
+    );
   },
     
   // push sample data: site search
