@@ -72,7 +72,7 @@
       "};",
       "CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];",
       "CWC_MLCA.dataLayer.push({",
-      "&nbsp;&nbsp;event: &quot;page&quot;,",
+      "&nbsp;&nbsp;event: &quot;pageLoad&quot;,",
       "&nbsp;&nbsp;page: page",
       "});",
       "&lt;/script&gt;"
