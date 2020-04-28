@@ -13,7 +13,6 @@ body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 </style>
-<script src="js/digital-analytics.js"></script>
 <script src="js/digital-analytics-gb.js"></script>
 <script src="js/digital-analytics-sample-scenario.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
@@ -116,28 +115,6 @@ body {font-size:16px;}
     <h4 class="w3-text-black">{{ current_page }}</h4>
     <p v-if="pageDescription() != null" v-html="pageDescription()">{{ pageDescription() }}</p>
     <p v-else>Click menu items to view detail ...</p>
-  </div>
-
-  <!-- Content -->
-  <div class="w3-container w3-border w3-border-red" style="margin-top:75px" v-if="pageDemo() != null">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Demo</b></h1>
-    <hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
-    <h5 class="w3-text-blue-grey">{{ pageDemo().description }}</h5>
-    <div v-if="pageDemo().formindex !== undefined">
-      <form action="#" v-if="pageDemo().formindex < 3">
-        <div class="w3-section">
-          <label class="w3-text-blue-grey">{{ pageDemo().forms[pageDemo().formindex] }}</label>
-          <input class="w3-input w3-border" type="text" :name="'form' + pageDemo().formindex" required>
-        </div>
-        <button type="submit" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">{{ pageDemo().formindex < 2 ? 'Next' : 'Submit' }}</button>
-      </form>
-      <h6 class="w3-text-blue" v-else>Thanks for submit the forms !</h6>
-    </div>
-    <div v-if="pageDemo().sampleflag !== undefined">
-      <a href="#" class="w3-bar-item" @click="setSampleDataLayer()">Sample Data Layer <span class="w3-text-red"><b>{{ pageDemo().sampleflag ? ' « ' : ' » ' }}</b></span></a>
-      <p v-if="pageDemo().sampleflag" v-html="pageDemo().sample">{{ pageDemo().sample }}</p>
-    </div>
-    <p>&nbsp;</p>
   </div>
 
 <!-- End page content -->
