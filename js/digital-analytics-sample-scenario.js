@@ -6,7 +6,7 @@ var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || {
     "page":
     `
 <hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
-<h5 class="w3-text-blue-grey">This page use following code and data:</h5>
+<h5 class="w3-text-blue-grey">The sample page will push following code and data to page view data layer:</h5>
 <ul class="w3-ul w3-dark-grey">
 <li>
 <p>
@@ -14,10 +14,10 @@ CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
 CWC_MLCA.dataLayer.push({<br />
 &nbsp;&nbsp;event: "pageLoad",<br />
 &nbsp;&nbsp;page: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"name": "digital-analytics:standard2020:sample-scenario:page-view",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"title": "Digital Analytics Standard2020 : Sample Scenario : Page View",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"category": "Sample Scenario",<br />
-&nbsp;&nbsp;&nbsp;&nbsp;"language": "EN"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "digital-analytics:standard2020:sample-scenario:page-view",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Digital Analytics Standard2020 : Sample Scenario : Page View",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "Sample Scenario",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;language: "EN"<br />
 &nbsp;&nbsp;}<br />
 });
 </p>
@@ -67,42 +67,54 @@ CWC_MLCA.dataLayer.push({<br />
     "page":
     `
 <hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
-<h5 class="w3-text-blue-grey">Customized transaction data layer implementation:</h5>
+<h5 class="w3-text-blue-grey">For this sample transaction, to push transaction and user, products data layer, use following code and data:</h5>
 <ul class="w3-ul w3-dark-grey">
 <li>
 <p>
-var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
-&nbsp;&nbsp;// Customized transaction data for GB project<br />
-&nbsp;&nbsp;transaction: function(transactionId, userId, mount, category, product) {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;window.CWC_MLCA.transaction(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"transactionId": transactionId,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"userId": userId,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mount": mount,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"category": category,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"product": product<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;);<br />
-&nbsp;&nbsp;},<br />
-}
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;event: "transaction",<br />
+&nbsp;&nbsp;transaction: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;transactionId: "t012",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;amount: "$120",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "transfer"<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;user: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;userId: "user01234567",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;userRole: "role01234567",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;userGroup: "group01234567",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;advisorID: "advisor01234567",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;status: "login"<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;products: [{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "High-interest Saving Account",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;productId: "bs012",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "Bank Saving",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;group: "bank",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;coverage: "CDIC",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;value: "$2000",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;tipInfo: "New Client Earn 2.80%* Interest for the First 5 Months!"<br />
+&nbsp;&nbsp;}]<br />
+});
 </p>
 </li>
 </ul>
-<h5 class="w3-text-blue-grey">Sample code to push transaction data use implemented transaction function:</h5>
+<h5 class="w3-text-blue-grey">Also the sample page will push following code and data to page view data layer:</h5>
 <ul class="w3-ul w3-dark-grey">
-<li>var userId = "user012";</li>
-<li>var mount = "$120";</li>
-<li>var category = "Transfer";</li>
-<li>var product = "bank saving";</li>
-<li>window.CWC_MLCA_GB.transaction(transactionId, userId, mount, category,  product);</li>
-</ul>
-<h5 class="w3-text-blue-grey">Also push page view data:</h5>
-<ul class="w3-ul w3-dark-grey">
-<li>var name = "digital-analytics:standard2020:sample-scenario:single-transaction-product";</li>
-<li>var title = "Digital Analytics Standard2020 : Sample Scenario : Single Transaction Product";</li>
-<li>var category = "Sample Scenario";</li>
-<li>var language = "EN";</li>
-<li>window.CWC_MLCA.page(name, title, category, language);</li>
+<li>
+<p>
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;event: "pageLoad",<br />
+&nbsp;&nbsp;page: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "digital-analytics:standard2020:sample-scenario:single-transaction-product",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Digital Analytics Standard2020 : Sample Scenario : Single Transaction Product",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "Sample Scenario",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;language: "EN"<br />
+&nbsp;&nbsp;}<br />
+});
+</p>
+</li>
 </ul>
     `
   },
@@ -112,47 +124,49 @@ var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
     "page":
     `
 <hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
-<h5 class="w3-text-blue-grey">Customized products data layer implementation:</h5>
+<h5 class="w3-text-blue-grey">For this sample product, to push products array data layer, use following code and data:</h5>
 <ul class="w3-ul w3-dark-grey">
 <li>
 <p>
-var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
-&nbsp;&nbsp;// Customized products data for GB project<br />
-&nbsp;&nbsp;product: function(name, productId, category, group, coverage, value, tipInfo) {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;window.CWC_MLCA.product(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": name,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"productId": productId,<br /> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"category": category,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"group": group,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"coverage": coverage,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": value,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tipInfo": tipInfo<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]<br />
-&nbsp;&nbsp;&nbsp;&nbsp;);<br />
-&nbsp;&nbsp;},<br />
-}
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;products: [{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "Travel in Canada",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;productId: "ti01234",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "travel insurance",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;group: "insurance",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;coverage: "45 days",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;value: "$200",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;tipInfo: "family coverage: 45 days"<br />
+&nbsp;&nbsp;},{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "Travel in Canada",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;productId: "ti56789",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "travel insurance",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;group: "insurance",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;coverage: "10 days",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;value: "$100",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;tipInfo: "single coverage: 10 days"<br />
+&nbsp;&nbsp;}]<br />
+});
 </p>
 </li>
 </ul>
-<h5 class="w3-text-blue-grey">Sample code to push product array data use implemented product function:</h5>
+<h5 class="w3-text-blue-grey">Also the sample page will push following code and data to page view data layer:</h5>
 <ul class="w3-ul w3-dark-grey">
-<li>var name = "Travel in Canada";</li>
-<li>var productId = "ti012";</li>
-<li>var category = "travel insurance";</li>
-<li>var group = "insurance";</li>
-<li>var coverage = "45 days";</li>
-<li>var value = "$100";</li>
-<li>var tipInfo = "single coverage: 45 days";</li>
-<li>window.CWC_MLCA_GB.product(name, productId, category, group, coverage, value, tipInfo)</li>
-</ul>
-<h5 class="w3-text-blue-grey">Also push page view data:</h5>
-<ul class="w3-ul w3-dark-grey">
-<li>var name = "digital-analytics:standard2020:sample-scenario:multiple-transaction-product";</li>
-<li>var title = "Digital Analytics Standard2020 : Sample Scenario : Multiple Transaction Product";</li>
-<li>var category = "Sample Scenario";</li>
-<li>var language = "EN";</li>
-<li>window.CWC_MLCA.page(name, title, category, language);</li>
+<li>
+<p>
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;event: "pageLoad",<br />
+&nbsp;&nbsp;page: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "digital-analytics:standard2020:sample-scenario:multiple-transaction-product",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Digital Analytics Standard2020 : Sample Scenario : Multiple Transaction Product",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "Sample Scenario",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;language: "EN"<br />
+&nbsp;&nbsp;}<br />
+});
+</p>
+</li>
 </ul>
     `
   },
@@ -212,9 +226,9 @@ var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
                          "Sample Scenario", // page category 
                          "EN"); // page language
     window.CWC_MLCA.transaction(
-        {"transactionId": "t012", "amount": "$120", "category": "transfer"}, // Transaction information
-        {"userId": "user01234567", "userRole": "role01234567", "userGroup": "group01234567", "advisorID": "advisor01234567", "status": "login"}, // user information
-        [{"name": "High-interest Saving Account", "productId": "bs012", "category": "Bank Saving", "group": "bank", "coverage": "CDIC", "value": "$2000", "tipInfo": "New Client Earn 2.80%* Interest for the First 5 Months!"}] // products information
+        {transactionId: "t012", amount: "$120", category: "transfer"}, // Transaction information
+        {userId: "user01234567", userRole: "role01234567", userGroup: "group01234567", advisorID: "advisor01234567", status: "login"}, // user information
+        [{name: "High-interest Saving Account", productId: "bs012", category: "Bank Saving", group: "bank", coverage: "CDIC", value: "$2000", tipInfo: "New Client Earn 2.80%* Interest for the First 5 Months!"}] // products information
     );
   },
     
@@ -226,21 +240,21 @@ var CWC_MLCA_GB = CWC_MLCA_GB || {<br />
                          "EN"); // page language
     window.CWC_MLCA.product(
       [{
-        "name": "Travel in Canada",
-        "productId": "ti01234", 
-        "category": "travel insurance",
-        "group": "insurance",
-        "coverage": "45 days",
-        "value": "$200",
-        "tipInfo": "family coverage: 45 days"
+        name: "Travel in Canada",
+        productId: "ti01234", 
+        category: "travel insurance",
+        group: "insurance",
+        coverage: "45 days",
+        value: "$200",
+        tipInfo: "family coverage: 45 days"
       },{
-        "name": "Travel in Canada",
-        "productId": "ti56789", 
-        "category": "travel insurance",
-        "group": "insurance",
-        "coverage": "10 days",
-        "value": "$100",
-        "tipInfo": "single coverage: 10 days"
+        name: "Travel in Canada",
+        productId: "ti56789", 
+        category: "travel insurance",
+        group: "insurance",
+        coverage: "10 days",
+        value: "$100",
+        tipInfo: "single coverage: 10 days"
       }]
     );
   },
