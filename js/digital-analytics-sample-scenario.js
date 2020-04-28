@@ -12,13 +12,13 @@ var CWC_MLCA_SampleScenario = CWC_MLCA_SampleScenario || {
 <p>
 CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
 CWC_MLCA.dataLayer.push({<br />
-&nbsp; event: "pageLoad",<br />
-&nbsp; page: {<br />
-&nbsp;   "name": "digital-analytics:standard2020:sample-scenario:page-view",<br />
-&nbsp;   "title": "Digital Analytics Standard2020 : Sample Scenario : Page View",<br />
-&nbsp;   "category": "Sample Scenario",<br />
-&nbsp;   "language": "EN"<br />
-&nbsp; }<br />
+&nbsp;&nbsp;event: "pageLoad",<br />
+&nbsp;&nbsp;page: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "digital-analytics:standard2020:sample-scenario:page-view",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"title": "Digital Analytics Standard2020 : Sample Scenario : Page View",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"category": "Sample Scenario",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;"language": "EN"<br />
+&nbsp;&nbsp;}<br />
 });
 </p>
 </li>
