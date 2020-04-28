@@ -114,20 +114,7 @@
       "&nbsp;&nbsp;}]",
       "});",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click link to add the product",
-      "sample": [
-        "&nbsp;&nbsp;&quot;name&quot;: &quot;Travel in Canada&quot;,",
-        "&nbsp;&nbsp;&quot;productID&quot;: &quot;ti012&quot;,",
-        "&nbsp;&nbsp;&quot;category&quot;: &quot;travel insurance&quot;,",
-        "&nbsp;&nbsp;&quot;group&quot;: &quot;insurance&quot;,",
-        "&nbsp;&nbsp;&quot;coverage&quot;: &quot;45 days&quot;,",
-        "&nbsp;&nbsp;&quot;value&quot;: &quot;$100&quot;,",
-        "&nbsp;&nbsp;&quot;tipInfo&quot;: &quot;single coverage: 45 days&quot;"
-      ],
-      "sampleflag": false
-    }
+    ]
   },
   "Form": {
     "name": "Application/Forms/Quote/Tool Data",
@@ -152,12 +139,7 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click next button to submit each forms",
-      "forms": [ "Input value of start step", "Input value of in-between step", "Input value of complete step" ],
-      "formindex": 0
-    }
+    ]
   },
   "Event": {
     "name": "Event Data",
@@ -217,30 +199,15 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click link to push the event",
-      "sample": [
-        "&quot;event&quot;: &quot;event&quot;,",
-        "&quot;action&quot;: {",
-        "&nbsp;&nbsp;&quot;action&quot;: &quot;sample-event&quot;,",
-        "&nbsp;&nbsp;&quot;category&quot;: &quot;event&quot;,",
-        "&nbsp;&nbsp;&quot;label&quot;: &quot;Sample Event&quot;,",
-        "&nbsp;&nbsp;&quot;detail&quot;: &quot;Sample Event 2020&quot; //detail description",
-        "}"
-      ],
-      "sampleflag": false
-    }
+    ]
   },
   "Transaction": {
     "name": "Transaction Data",
     "description": [
       "The transaction data carries details about latest transaction and holds following values:<br />",
       " &quot;transactionID&quot;: transaction ID",
-      " &quot;userID&quot;: link to user",
-      " &quot;mount&quot;: transaction mount",
+      " &quot;amount&quot;: transaction mount",
       " &quot;category&quot;: transaction product category",
-      " &quot;product&quot;: productID / product name",
       " &quot;event&quot;: event of transaction needs to push into event object<br /><br />",
       "Sample code:<br />",
       "&lt;script&gt;",
@@ -249,26 +216,12 @@
       "&quot;event&quot;: &quot;transaction&quot;,",
       "&quot;transaction&quot;: {",
       "&nbsp;&nbsp;&quot;transactionID&quot;: &quot;t012&quot;,",
-      "&nbsp;&nbsp;&quot;userID&quot;: &quot;user012&quot;,",
-      "&nbsp;&nbsp;&quot;mount&quot;: &quot;$120&quot;,",
-      "&nbsp;&nbsp;&quot;category&quot;: &quot;transfer&quot;,",
-      "&nbsp;&nbsp;&quot;product&quot;: &quot;bank saving&quot;",
+      "&nbsp;&nbsp;&quot;amount&quot;: &quot;$120&quot;,",
+      "&nbsp;&nbsp;&quot;category&quot;: &quot;transfer&quot;",
       "}",
       ");",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click link to set transaction and push the event",
-      "sample": [
-        "&nbsp;&nbsp;<b><i>set transaction</i> :</b>",
-        "&nbsp;&nbsp;&quot;transactionID&quot;: &quot;t012&quot;,",
-        "&nbsp;&nbsp;&quot;userID&quot;: &quot;user012&quot;,",
-        "&nbsp;&nbsp;&quot;mount&quot;: &quot;$120&quot;,",
-        "&nbsp;&nbsp;&quot;category&quot;: &quot;transfer&quot;,",
-        "&nbsp;&nbsp;&quot;product&quot;: &quot;bank saving&quot;"
-      ],
-      "sampleflag": false
-    }
+    ]
   },
   "Component": {
     "name": "Component Data",
@@ -289,16 +242,7 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click link to add the component",
-      "sample": [
-        "&nbsp;&nbsp;&quot;name&quot;: &quot;CreditLineApprove&quot;,",
-        "&nbsp;&nbsp;&quot;componentID&quot;: &quot;component012&quot;,",
-        "&nbsp;&nbsp;&quot;description&quot;: &quot;line of credit approved&quot;"
-      ],
-      "sampleflag": false
-    }
+    ]
   },
   "User": {
     "name": "User Data",
@@ -323,18 +267,7 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click link to add the user",
-      "sample": [
-        "&nbsp;&nbsp;&quot;userID&quot;: &quot;user01234567&quot;,",
-        "&nbsp;&nbsp;&quot;userRole&quot;: &quot;role01234567&quot;,",
-        "&nbsp;&nbsp;&quot;userGroup&quot;: &quot;group01234567&quot;,",
-        "&nbsp;&nbsp;&quot;advisorID&quot;: &quot;advisor01234567&quot;,",
-        "&nbsp;&nbsp;&quot;status&quot;: &quot;login&quot;"
-      ],
-      "sampleflag": false
-    }
+    ]
   },
   "Customer": {
     "name": "Customer Data",
@@ -363,20 +296,7 @@
       "}",
       ");",
       "&lt;/script&gt;"
-    ],
-    "demo": {
-      "description": "Click link to add the customer",
-      "sample": [
-        "&nbsp;&nbsp;&quot;customerStatus&quot;: &quot;prospect&quot;,",
-        "&nbsp;&nbsp;&quot;gender&quot;: &quot;F&quot;,",
-        "&nbsp;&nbsp;&quot;age&quot;: &quot;40&quot;,",
-        "&nbsp;&nbsp;&quot;smokeStatus&quot;: &quot;non-smoke&quot;,",
-        "&nbsp;&nbsp;&quot;province&quot;: &quot;ON&quot;,",
-        "&nbsp;&nbsp;&quot;profile&quot;: &quot;primary&quot;,",
-        "&nbsp;&nbsp;&quot;employment&quot;: &quot;self-employed&quot;"
-      ],
-      "sampleflag": false
-    }
+    ]
   },
   "Redirect": {
     "name": "data-analytics-redirect",
