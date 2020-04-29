@@ -70,10 +70,41 @@ CWC_MLCA.dataLayer.push({<br />
     "sample": "DataLayer of PDF download",
     "page":
     `
-<hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
-<h5 class="w3-text-blue-grey">under-construction</h5>
+<hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
+<h5 class="w3-text-blue-grey">Click following download link will push following code and data to event data layer:</h5>
+<h6 class="w3-text-blue"><a id="download-datalayer" href="policy-booklet-2020.pdf" target="_blank">Policy Booklet 2020</a></h6>
 <ul class="w3-ul w3-dark-grey">
-<li>under-construction</li>
+<li>
+<p>
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;event: "download",<br />
+&nbsp;&nbsp;action: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "download",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "pdf",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;label: "policy-booklet-2020.pdf",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;detail: "Policy Booklet 2020"<br />
+&nbsp;&nbsp;}<br />
+});
+</p>
+</li>
+</ul>
+<h5 class="w3-text-blue-grey">Also the sample page will push following code and data to page view data layer:</h5>
+<ul class="w3-ul w3-dark-grey">
+<li>
+<p>
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;event: "pageLoad",<br />
+&nbsp;&nbsp;page: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "digital-analytics:standard2020:sample-scenario:download-datalayer",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Digital Analytics Standard2020 : Sample Scenario : Download event use Data Layer",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "Sample Scenario",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;language: "EN"<br />
+&nbsp;&nbsp;}<br />
+});
+</p>
+</li>
 </ul>
     `
   },
@@ -246,14 +277,20 @@ CWC_MLCA.dataLayer.push({<br />
   },
     
   // push sample data: pdf download
-  pdfDownload: function() {
-    console.log("SampleScenario:pdfDownload");
+  downloadDataLayer: function() {
+    window.CWC_MLCA.page("digital-analytics:standard2020:sample-scenario:download-datalayer", // page name
+                         "Digital Analytics Standard2020 : Sample Scenario : Download event use Data Layer", // page title
+                         "Sample Scenario", // page category 
+                         "EN"); // page language
   },
     
-  // HTML5 Attribute PDF Download, no function needed
-  //pdfDownloadAttribute: function() {
-  //  console.log("SampleScenario:pdfDownloadAttribute");
-  //},
+  // HTML5 Attribute for PDF Download, 
+  downloadAttribute: function() {
+    window.CWC_MLCA.page("digital-analytics:standard2020:sample-scenario:download-attribute", // page name
+                         "Digital Analytics Standard2020 : Sample Scenario : Download event use HTML5 Attributes", // page title
+                         "Sample Scenario", // page category 
+                         "EN"); // page language
+  },
     
   // push sample data: single transaction product
   singleTransactionProduct: function() {
@@ -306,3 +343,11 @@ CWC_MLCA.dataLayer.push({<br />
   }
 
 }
+
+$(document).on("click", "#download-datalayer", function(){
+  window.CWC_MLCA.event("download", // event tyoe
+                        "download", // action name
+                        "pdf", // action category 
+                        "policy-booklet-2020.pdf", // action label 
+                        "Policy Booklet 2020"); // action description
+});
