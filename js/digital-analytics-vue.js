@@ -45,8 +45,8 @@ var digital_analytics = new Vue({
       if (categoryIndex >= 3 && pageIndex >= 0) { // handle sample scenario
         if (pageIndex == 0) window.CWC_MLCA_SampleScenario.pageView();
         if (pageIndex == 1) window.CWC_MLCA_SampleScenario.pageUserView();
-        if (pageIndex == 2) window.CWC_MLCA_SampleScenario.pdfDownload();
-        //if (pageIndex == 3) window.CWC_MLCA_SampleScenario.pageView(); // no JavaScript code needed for HTML5 Attribute sample
+        if (pageIndex == 2) window.CWC_MLCA_SampleScenario.downloadDataLayer();
+        if (pageIndex == 3) window.CWC_MLCA_SampleScenario.downloadAttribute();
         if (pageIndex == 4) window.CWC_MLCA_SampleScenario.singleTransactionProduct();
         if (pageIndex == 5) window.CWC_MLCA_SampleScenario.multipleTransactionProduct();
         if (pageIndex == 6) window.CWC_MLCA_SampleScenario.siteSearch();
