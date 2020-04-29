@@ -42,10 +42,10 @@ var CWC_MLCA = CWC_MLCA || {
   },
 
   // Push Event Information
-  event: function(name, category, label, detail) {
+  event: function(event, name, category, label, detail) {
     this.dataLayer = this.dataLayer || [];
     this.dataLayer.push({
-      event: "event",
+      event: event,
       action: {
         name: name, 
         category: category,
