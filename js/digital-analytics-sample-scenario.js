@@ -72,7 +72,7 @@ CWC_MLCA.dataLayer.push({<br />
     `
 <hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
 <h5 class="w3-text-blue-grey">Click following download link will push following code and data to event data layer:</h5>
-<h6 class="w3-text-blue"><a id="download-datalayer" href="policy-booklet-2020.pdf" target="_blank">Policy Booklet 2020</a></h6>
+<h6 class="w3-text-blue"><a id="download-datalayer" href="policy-booklet-2020.pdf" target="_blank">Download Policy Booklet 2020</a></h6>
 <ul class="w3-ul w3-dark-grey">
 <li>
 <p>
@@ -113,10 +113,36 @@ CWC_MLCA.dataLayer.push({<br />
     "sample": "HTML5 Attributes of PDF download",
     "page":
     `
-<hr style="width:200px;border:3px solid lightgrey" class="w3-round-small">
-<h5 class="w3-text-blue-grey">under-construction</h5>
+<hr style="width:500px;border:2px solid lightgrey" class="w3-round-small">
+<h5 class="w3-text-blue-grey">Add following "data-analytics-*" attributes and values to the download link HTML element.<br />Click the download link to give a try.</h5>
+<h6 class="w3-text-blue"><a href="policy-booklet-2020.pdf" target="_blank" data-analytics-download="pdf" data-analytics-download-text="Policy Booklet 2020" data-analytics-download-filename="policy-booklet-2020.pdf">Download Policy Booklet 2020</a></h6>
 <ul class="w3-ul w3-dark-grey">
-<li>under-construction</li>
+<li>
+<p>
+&lt;a href=&quot;policy-booklet-2020.pdf&quot;<br />
+&nbsp;&nbsp;data-analytics-download=&quot;pdf&quot;<br />
+&nbsp;&nbsp;data-analytics-download-text=&quot;Policy Booklet 2020&quot;<br />
+&nbsp;&nbsp;data-analytics-download-filename=&quot;policy-booklet-2020.pdf&quot;<br />
+&nbsp;&nbsp;target=&quot;_blank&quot;&gt;Download Policy Booklet 2020&lt;/a&gt;
+</p>
+</li>
+</ul>
+<h5 class="w3-text-blue-grey">Also the sample page will push following code and data to page view data layer:</h5>
+<ul class="w3-ul w3-dark-grey">
+<li>
+<p>
+CWC_MLCA.dataLayer = CWC_MLCA.dataLayer || [];<br />
+CWC_MLCA.dataLayer.push({<br />
+&nbsp;&nbsp;event: "pageLoad",<br />
+&nbsp;&nbsp;page: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name: "digital-analytics:standard2020:sample-scenario:download-attribute",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;title: "Digital Analytics Standard2020 : Sample Scenario : Download event use HTML5 Attribute",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;category: "Sample Scenario",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;language: "EN"<br />
+&nbsp;&nbsp;}<br />
+});
+</p>
+</li>
 </ul>
     `
   },
